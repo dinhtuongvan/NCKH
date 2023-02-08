@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/addcert.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <title>Add Certificate</title>
+</head>
+<body>
+    <p w3-include-html="header.html"></p>
+
+    <div class="grid wide cert__wrap">
+        <div class="row cert_custom mt30 mb30">
+            <div class="col l-6 cert__info">
+                <div class="row mb-10">
+                    <div class="col l-4">
+                        <div class="cert__title">Tên chứng chỉ</div>
+                    </div>
+                    <div class="col l-8">
+                        <input type="text" class="cert__name" placeholder="Nhập tên chứng chỉ">
+                    </div>
+                </div>
+
+                <div class="row mb-10">
+                    <div class="col l-4">
+                        <div class="cert__title">Tên sinh viên</div>
+                    </div>
+                    <div class="col l-8">
+                        <input type="text" class="cert__receiver" placeholder="Nhập tên sinh viên">
+                    </div>
+                </div>
+
+                <div class="row mb-10">
+                    <div class="col l-4">
+                        <div class="cert__title">Ngày phát hành</div>
+                    </div>
+                    <div class="col l-8">
+                        <input type="text" class="cert__date" placeholder="Nhập ngày phát hành">
+                    </div>
+                </div>
+
+                <div class="row mb-10">
+                    <div class="col l-4">
+                        <div class="cert__title">Ngày hết hạn</div>
+                    </div>
+                    <div class="col l-8">
+                        <input type="text" class="cert__outdate" placeholder="Nhập ngày hết hạn">
+                    </div>
+                </div>
+
+                <div class="row mb-10">
+                    <div class="col l-4">
+                        <div class="cert__title">Xếp loại</div>
+                    </div>
+                    <div class="col l-8">
+                        <input type="text" class="cert__rank" placeholder="Nhập xếp loại">
+                    </div>
+                </div>
+
+                <div class="row mb-10">
+                    <div class="col l-4">
+                        <div class="cert__title">Đơn vị phát hành</div>
+                    </div>
+                    <div class="col l-8">
+                        <input type="text" class="cert__issuer" placeholder="Nhập tên đơn vị">
+                    </div>
+                </div>
+
+                <div class="row mb-10">
+                    <div class="col l-4">
+                        <div class="cert__title">Trạng thái phát hành</div>
+                    </div>
+                    <div class="col l-8">
+                        <input type="text" class="cert__status" placeholder="Nhập trạng thái phát hành">
+                    </div>
+                </div>
+
+                <a href="" class="btn">Phát hành</a>
+            </div>
+            <div class="col l-6">
+                <div class="cert__load">
+                    <p class="cert__xyz">Hình ảnh chứng chỉ</p>
+                    <img src="./assets/image/lazy_loading.gif" alt="" class="cert__img">
+                    <a href="" class="btn btn_cus">
+                        Upload
+                        <i class="fa-solid fa-upload cert__icon"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <p w3-include-html="footer.html"></p>
+    <script>
+        w3.includeHTML();
+    </script>
+</body>
+</html>

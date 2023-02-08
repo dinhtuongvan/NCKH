@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/user.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>User</title>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+</head>
+<body>
+    <p w3-include-html="header.html"></p>
+
+    <div class="grid wide user__wrap">
+        <div class="row">
+            <div class="col l-3">
+                <div class="user__setting">
+                    <div class="none"></div>
+                    <div class="user__avt--wrap">
+                        <img src="./assets/image/205ac833d83d23c76ccb74f591cb6000.jpg" alt="" class="user__avt">
+                        <a href="" class="user__avt-btn">
+                            <i class="fa-solid fa-pen-to-square user__avt-icon"></i>
+                        </a>
+                    </div>
+                    <p class="user__name">Đinh Tường Văn</p>
+                    <p class="user__id">K204110613</p>
+                    <a href="" class="btn-s">Edit Profile</a>
+                </div>
+            </div>
+            <div class="col l-9">
+                <div class="user__info">
+                    <div class="none"></div>
+                    <div class="user__info-item">
+                        <i class="fa-solid fa-user user__infor-icon"></i>
+                        <div class="user__info-wrap">
+                            <input class="user__info-tag" placeholder="Full name" disabled>
+                            <div class="user__infor-name">Đinh Tường Văn</div>
+                        </div>
+                    </div>
+
+                    <div class="user__info-item">
+                        <i class="fa-solid fa-calendar user__infor-icon"></i>
+                        <div class="user__info-wrap">
+                            <input class="user__info-tag" placeholder="Date of birth" disabled>
+                            <div class="user__infor-name">22/05/2002</div>
+                        </div>
+                    </div>
+
+                    <div class="user__info-item">
+                        <i class="fa-solid fa-venus user__infor-icon"></i>
+                        <div class="user__info-wrap">
+                            <input class="user__info-tag" placeholder="Gender" disabled>
+                            <div class="user__infor-name">Nam</div>
+                        </div>
+                    </div>
+
+                    <div class="user__info-item">
+                        <i class="fa-solid fa-phone user__infor-icon"></i>
+                        <div class="user__info-wrap">
+                            <input class="user__info-tag" placeholder="Phone" disabled>
+                            <div class="user__infor-name">0123 456 78</div>
+                        </div>
+                    </div>
+
+                    <div class="user__info-item">
+                        <i class="fa-solid fa-envelope user__infor-icon"></i>
+                        <div class="user__info-wrap">
+                            <input class="user__info-tag" placeholder="Email" disabled>
+                            <div class="user__infor-name">dinhtuongvan225@gmail.com</div>
+                        </div>
+                    </div>
+
+                    <div class="user__info-item">
+                        <i class="fa-solid fa-book user__infor-icon"></i>
+                        <div class="user__info-wrap">
+                            <input class="user__info-tag" placeholder="Major" disabled>
+                            <div class="user__infor-name">Thương Mại Điện Tử</div>
+                        </div>
+                    </div>
+
+                    <div class="user__info-item">
+                        <i class="fa-solid fa-lock user__infor-icon"></i>
+                        <div class="user__info-wrap">
+                            <input class="user__info-tag" placeholder="Account" disabled>
+                            <div class="user__infor-name">dinhtuongvan225</div>
+                        </div>
+                    </div>
+
+                    <div class="user__info-item">
+                        <i class="fa-sharp fa-solid fa-key user__infor-icon"></i>
+                        <div class="user__info-wrap">
+                            <input class="user__info-tag" placeholder="Password" disabled>
+                            <div class="user__infor-name">123456789</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p w3-include-html="footer.html"></p>
+    <script>
+        w3.includeHTML();
+    </script>
+</body>
+</html>
