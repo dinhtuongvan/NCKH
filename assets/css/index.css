@@ -6,11 +6,11 @@
 }
 
 .background{
-    background-image: url(../image/uel.2.jpg);
+    background-image: url(../image/bc1.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 400px;
+    height: 700px;
     width: 100%;
 }
 

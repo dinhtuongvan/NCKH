@@ -87,9 +87,11 @@
             <div class="col l-6">
                 <div class="cert__load">
                     <p class="cert__xyz">Hình ảnh chứng chỉ</p>
-                    <img src="./assets/image/lazy_loading.gif" alt="" class="cert__img">
+                    
+                    <div id="cert__display"></div>
                     <a href="" class="btn btn_cus">
-                        Upload
+                        <input type="file" name="uploadfile" id="cert__img" style="display:none;" accept="image/png, image/jpg"/>
+                        <label for="cert__img">Upload</label>
                         <i class="fa-solid fa-upload cert__icon"></i>
                     </a>
                 </div>
@@ -101,6 +103,18 @@
     <p w3-include-html="footer.html"></p>
     <script>
         w3.includeHTML();
+
+        const cert__img = document.querySelector("#cert__img");
+        var uploaded__img = "";
+        cert__img.addEventListener("change", function(){
+            const reader = new FileReader();
+            reader.addEventListener("load", () => {
+                uploaded__img = reader.result;
+                document.querySelector("#cert__display").style.backgroundImage = `url(${uploaded__img})`;
+            });
+
+            reader.readAsDataURL(this.files[0]);
+        })
     </script>
 </body>
 </html>

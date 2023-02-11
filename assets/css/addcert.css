@@ -16,7 +16,7 @@
     padding: 14px 20px;
     text-align: center;
     background: #0970BC;
-    margin-top: 40px;
+    margin: 40px auto 0;
 }
 
 .btn_cus{
@@ -71,6 +71,12 @@
     border-radius: 15px;
     padding: 20px 20px 40px;
 }
+
+#cert__display{
+    min-height: 350px;
+    min-width: 200px;
+    background-color: #fff;
+}
 .cert__xyz{
     font-size: 20px;
     text-align: center;
@@ -79,8 +85,8 @@
 
 .cert__img{    
     display: block;
-    min-height: 300px;
-    width: 350px;
+    min-height: 350px;
+    min-width: 300px;
     margin: 0 auto;}
 .cert__icon{}
 
