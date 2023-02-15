@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metamask</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      .background {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(to right, #0970bc, #0e99ff);
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mtm {
+        display: block;
+        width: 400px;
+      }
+
+      .btn {
+        display: block;
+        min-width: 150px;
+        text-decoration: none;
+        color: #fff;
+        font-size: 16px;
+        line-height: 16px;
+        border-radius: 10px;
+        padding: 14px 20px;
+        text-align: center;
+        background: #0970bc;
+        margin: 40px auto 0;
+      }
+
+      .btn_cus {
+        background: #fff;
+        color: #0970bc;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background">
+      <div>
+        <img src="./assets/image/MTM.png" alt="" class="mtm" />
+        <a onclick="connectMetamask()" href="" class="btn btn_cus"
+          >Kết nối với Metamask</a
+        >
+      </div>
+    </div>
+
+    <script>
+      let account;
+      const connectMetamask = async () => {
+        if (window.ethereum !== "undefined") {
+          const accounts = await ethereum.request({
+            method: "eth_requestAccounts",
+          });
+
+          if (
+            typeof window.ethereum !== "undefined" &&
+            window.ethereum.isConnected()
+          ) {
+            // Metamask is connected
+            window.location.href ="index.html"
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

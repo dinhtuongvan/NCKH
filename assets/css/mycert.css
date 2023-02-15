@@ -45,11 +45,20 @@ span{
 .cert__outdate,
 .cert__rank,
 .cert__issuer,
-.cert__status{
+.cert__status,
+.label{
     font-size: 16px;
     letter-spacing: 1px;
     line-height: 16px;
     margin-bottom: 10px;
+}
+
+.label{
+    margin-right: 5px;
+}
+
+.cert__detail--wrap{
+    display: flex;
 }
 
 .cert__code{
@@ -61,4 +70,10 @@ span{
 
 .cert__code:hover{
     color: #0970bc;
+}
+
+.mycert__img{
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
 }

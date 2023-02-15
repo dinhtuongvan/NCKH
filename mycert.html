@@ -1,89 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/mycert.css">
-    <link rel="stylesheet" href="./assets/css/grid.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/mycert.css" />
+    <link rel="stylesheet" href="./assets/css/grid.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>My Certificate</title>
     <script src="https://www.w3schools.com/lib/w3.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <p w3-include-html="header.html"></p>
 
     <div class="grid wide cert__wrap">
-        <div class="row mt30 cert_custom">
-            <div class="col l-4">
-                <img src="./assets/image/toeic.jpg" alt="" class="cert__img">
-            </div>
-            <div class="col l-8">
-                <div class="cert__info-wrap">
-                    <div class="cert__info">
-                        <h1 class="cert__name">TOEIC ETS</h1>
-                        <p class="cert__id">ID: ENG11111</p>
-                        <p class="cert__receiver">Họ tên: Đinh Tường Văn</p>
-                        <p class="cert__date">Ngày phát hành: 22-08-2023</p>
-                        <p class="cert__outdate">Ngày hết hạn: 22-08-2025</p>
-                        <p class="cert__rank">Xếp loại: 880</p>
-                        <p class="cert__issuer">Đơn vị phát hành: ETS</p>
-                        <p class="cert__status">Trạng thái: <span>Đang phát hành</span></p>
-                    </div>
-                    <a href="" class="cert__code">Nhận mã chứng chỉ</a>
-                </div>
-            </div>
+      <div class="row mt30 cert_custom">
+        <div class="col l-4">
+          <!-- <img src="./assets/image/toeic.jpg" alt="" class="cert__img" /> -->
+          <div id="cert__img" style="width: 100%; height: 100%"></div>
         </div>
+        <div class="col l-8">
+          <div class="cert__info-wrap">
+            <div class="cert__info">
+              <h1 class="cert__name">TOEIC ETS</h1>
+              <div class="cert__detail--wrap">
+                <p class="label">ID:</p>
+                <p class="cert__id">ENG11111</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Họ tên:</p>
+                <p class="cert__receiver">Đinh Tường Văn</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Ngày phát hành:</p>
+                <p class="cert__receiver">22-08-2023</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Ngày hết hạn:</p>
+                <p class="cert__receiver">22-08-2025</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Xếp loại:</p>
+                <p class="cert__receiver">880</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Đơn vị phát hành:</p>
+                <p class="cert__receiver">ETS</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Trạng thái:</p>
+                <p class="cert__status">
+                  <span>Đang phát hành</span>
+                </p>
+              </div>
 
-        <div class="row mt30 cert_custom">
-            <div class="col l-4">
-                <img src="./assets/image/ielts.jpg" alt="" class="cert__img">
+              <p class="cert__date"></p>
+              <p class="cert__outdate"></p>
+              <p class="cert__rank"></p>
+              <p class="cert__issuer"></p>
             </div>
-            <div class="col l-8">
-                <div class="cert__info-wrap">
-                    <div class="cert__info">
-                        <h1 class="cert__name">IELTS</h1>
-                        <p class="cert__id">ID: ENG22222</p>
-                        <p class="cert__receiver">Họ tên: Đinh Tường Văn</p>
-                        <p class="cert__date">Ngày phát hành: 22-08-2023</p>
-                        <p class="cert__outdate">Ngày hết hạn: 22-08-2025</p>
-                        <p class="cert__rank">Xếp loại: 7.5 Overall</p>
-                        <p class="cert__issuer">Đơn vị phát hành: IDP</p>
-                        <p class="cert__status">Trạng thái: <span>Đang phát hành</span></p>
-                    </div>
-                    <a href="" class="cert__code">Nhận mã chứng chỉ</a>
-                </div>
-            </div>
+            <a href="#" class="cert__code"
+              >Nhận mã chứng chỉ</a
+            >
+          </div>
         </div>
+      </div>
 
-        <div class="row mt30 mb30 cert_custom">
-            <div class="col l-4">
-                <img src="./assets/image/TN.png" alt="" class="cert__img ">
-            </div>
-            <div class="col l-8">
-                <div class="cert__info-wrap">
-                    <div class="cert__info">
-                        <h1 class="cert__name">GRADUATION DEGREE</h1>
-                        <p class="cert__id">ID: TN11111</p>
-                        <p class="cert__receiver">Họ tên: Đinh Tường Văn</p>
-                        <p class="cert__date">Ngày phát hành: 22-08-2023</p>
-                        <p class="cert__outdate">Ngày hết hạn: 22-08-2025</p>
-                        <p class="cert__rank">Xếp loại: Giỏi</p>
-                        <p class="cert__issuer">Đơn vị phát hành: Trường Đại học Kinh Tế - Luật</p>
-                        <p class="cert__status">Trạng thái: <span>Đang phát hành</span></p>
-                    </div>
-                    <a href="" class="cert__code">Nhận mã chứng chỉ</a>
-                </div>
-            </div>
+      <div class="row mt30 cert_custom">
+        <div class="col l-4">
+          <img src="./assets/image/ielts.jpg" alt="" class="cert__img" />
         </div>
+        <div class="col l-8">
+          <div class="cert__info-wrap">
+            <div class="cert__info">
+              <h1 class="cert__name">TOEIC ETS</h1>
+              <div class="cert__detail--wrap">
+                <p class="label">ID:</p>
+                <p class="cert__id">ENG11111</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Họ tên:</p>
+                <p class="cert__receiver">Đinh Tường Văn</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Ngày phát hành:</p>
+                <p class="cert__receiver">22-08-2023</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Ngày hết hạn:</p>
+                <p class="cert__receiver">22-08-2025</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Xếp loại:</p>
+                <p class="cert__receiver">880</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Đơn vị phát hành:</p>
+                <p class="cert__receiver">ETS</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Trạng thái:</p>
+                <p class="cert__status">
+                  <span>Đang phát hành</span>
+                </p>
+              </div>
+
+              <p class="cert__date"></p>
+              <p class="cert__outdate"></p>
+              <p class="cert__rank"></p>
+              <p class="cert__issuer"></p>
+            </div>
+            <a href="" class="cert__code">Nhận mã chứng chỉ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt30 mb30 cert_custom">
+        <div class="col l-4">
+          <img src="./assets/image/TN.png" alt="" class="cert__img" />
+        </div>
+        <div class="col l-8">
+          <div class="cert__info-wrap">
+            <div class="cert__info">
+              <h1 class="cert__name">TOEIC ETS</h1>
+              <div class="cert__detail--wrap">
+                <p class="label">ID:</p>
+                <p class="cert__id">ENG11111</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Họ tên:</p>
+                <p class="cert__receiver">Đinh Tường Văn</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Ngày phát hành:</p>
+                <p class="cert__receiver">22-08-2023</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Ngày hết hạn:</p>
+                <p class="cert__receiver">22-08-2025</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Xếp loại:</p>
+                <p class="cert__receiver">880</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Đơn vị phát hành:</p>
+                <p class="cert__receiver">ETS</p>
+              </div>
+              <div class="cert__detail--wrap">
+                <p class="label">Trạng thái:</p>
+                <p class="cert__status">
+                  <span>Đang phát hành</span>
+                </p>
+              </div>
+
+              <p class="cert__date"></p>
+              <p class="cert__outdate"></p>
+              <p class="cert__rank"></p>
+              <p class="cert__issuer"></p>
+            </div>
+            <a href="" class="cert__code">Nhận mã chứng chỉ</a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <p w3-include-html="footer.html"></p>
     <script>
-        w3.includeHTML();
+      w3.includeHTML();
+
+      function Cert() {
+        const url = localStorage.getItem("image");
+        // Get data URL from localStorage
+
+        const img = new Image();
+        img.className = "mycert__img";
+        img.src = url;
+        document.getElementById("cert__img").appendChild(img);
+      }
     </script>
-</body>
+  </body>
 </html>

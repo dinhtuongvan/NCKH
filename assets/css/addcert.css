@@ -73,6 +73,7 @@
 }
 
 #cert__display{
+    max-width: 500px;
     min-height: 350px;
     min-width: 200px;
     background-color: #fff;
@@ -92,4 +93,9 @@
 
 .cert__icon{
     margin-left: 15px;
+}
+
+.img__display{
+    display: block;
+    max-width: 500px;
 }

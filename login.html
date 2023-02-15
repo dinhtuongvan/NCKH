@@ -1,69 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/login.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>Login</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="main">
-        <div class="background">
+      <div class="background"></div>
+      <div class="background__overlay"></div>
+      <div class="hero">
+        <div class="form-box">
+          <div class="button-box">
+            <div id="btn"></div>
+            <button type="button" class="toggle-btn" onclick="login()">
+              Log In
+            </button>
+            <button type="button" class="toggle-btn" onclick="register()">
+              Register
+            </button>
+          </div>
+          <div class="social-icons">
+            <img src="./assets/image/Facebook-200x200.jpg" alt="" />
+            <img src="./assets/image/Google.jpg" alt="" />
+            <img src="./assets/image/768px-LinkedIn_logo_initials.png" alt="" />
+          </div>
+          <form id="login" action="" class="input-group">
+            <input
+              id="email1"
+              type="text"
+              class="input-field"
+              placeholder="User Id"
+              required
+            />
+            <input
+              id="psw1"
+              type="text"
+              class="input-field"
+              placeholder="Enter Password"
+              required
+            />
+            <input type="checkbox" class="chech-box" /><span
+              >Remember Password</span
+            >
+            <button onclick="Login()" type="submit" class="submit-btn">
+              Log In
+            </button>
+          </form>
+
+          <form id="register" action="" class="input-group">
+            <input
+              id="name"
+              type="text"
+              class="input-field"
+              placeholder="User Id"
+              required
+            />
+            <input
+              id="email"
+              type="email"
+              class="input-field"
+              placeholder="Email"
+              required
+            />
+            <input
+              id="psw"
+              type="text"
+              class="input-field"
+              placeholder="Enter Password"
+              required
+            />
+            <input type="checkbox" class="chech-box" /><span
+              >I agree to the terms conditions
+            </span>
+            <button onclick="saveData()" type="submit" class="submit-btn">
+              Register
+            </button>
+          </form>
         </div>
-        <div class="background__overlay">  
-        </div>
-        <div class="hero">
-            <div class="form-box">
-                <div class="button-box">
-                    <div id="btn"></div>
-                    <button type="button" class="toggle-btn" onclick="login()">Log In</button>
-                    <button type="button" class="toggle-btn" onclick="register()">Register</button>
-                </div>
-                <div class="social-icons">
-                    <img src="./assets/image/Facebook-200x200.jpg" alt="">
-                    <img src="./assets/image/Google.jpg" alt="">
-                    <img src="./assets/image/768px-LinkedIn_logo_initials.png" alt="">
-                </div>
-                <form id="login" action="" class="input-group">
-                    <input type="text" class="input-field" placeholder="User Id" required>
-                    <input type="text" class="input-field" placeholder="Enter Password" required>
-                    <input type="checkbox" class="chech-box"><span>Remember Password</span>
-                    <button type="submit" class="submit-btn">Log In</button>
-                </form>
-        
-                <form id="register" action="" class="input-group">
-                    <input type="text" class="input-field" placeholder="User Id" required>
-                    <input type="email" class="input-field" placeholder="Email" required>
-                    <input type="text" class="input-field" placeholder="Enter Password" required>
-                    <input type="checkbox" class="chech-box"><span>I agree to the terms conditions </span>
-                    <button type="submit" class="submit-btn">Register</button>
-                </form>
-            </div>
-        </div>
+      </div>
     </div>
 
     <script>
-        
-        var x = document.getElementById("login");
-        var y = document.getElementById("register");
-        var z = document.getElementById("btn");
+      var x = document.getElementById("login");
+      var y = document.getElementById("register");
+      var z = document.getElementById("btn");
 
-        function register(){
-            x.style.left = "-400px";
-            y.style.left = "50px";
-            z.style.left = "110px";
-        }
+      function register() {
+        x.style.left = "-400px";
+        y.style.left = "50px";
+        z.style.left = "110px";
+      }
 
-        function login(){
-            x.style.left = "50px";
-            y.style.left = "450px";
-            z.style.left = "0";
+      function login() {
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0";
+      }
+
+      //Register in LocalStorage
+      function saveData() {
+        let name, email, psw;
+        name = document.getElementById("name").value;
+        email = document.getElementById("email").value;
+
+        psw = document.getElementById("psw").value;
+
+        let user_records = new Array();
+        user_records = JSON.parse(localStorage.getItem("users"))
+          ? JSON.parse(localStorage.getItem("users"))
+          : [];
+        if (
+          user_records.some((v) => {
+            return v.email == email;
+          })
+        ) {
+          alert("Tài khoản đã tồn tại");
+        } else {
+          user_records.push({
+            name: name,
+            email: email,
+            psw: psw,
+          });
+          localStorage.setItem("users", JSON.stringify(user_records));
+          alert("Đăng ký thành công");
         }
+      }
+
+      //Login in LocalStorage
+
+      let name = localStorage.getItem("name")
+        ? localStorage.getItem("name")
+        : "";
+      console.log(name);
+      if (name != "") {
+        window.location.href = "metamask.html";
+      }
+      function Login() {
+        let email1, psw1;
+        email1 = document.getElementById("email1").value;
+
+        psw1 = document.getElementById("psw1").value;
+
+        let user_records = new Array();
+        user_records = JSON.parse(localStorage.getItem("users"))
+          ? JSON.parse(localStorage.getItem("users"))
+          : [];
+        if (
+          user_records.some((v) => {
+            return v.email == email1 && v.psw == psw1;
+          })
+        ) {
+          alert("Đăng nhập thành công");
+          let current_user = user_records.filter((v) => {
+            return v.email == email1 && v.psw == psw1;
+          })[0];
+          localStorage.setItem("name", current_user.name);
+          localStorage.setItem("email", current_user.email);
+          window.location.href = "metamask.html";
+        } else {
+          alert("Đăng nhập không thành công");
+        }
+      }
     </script>
-</body>
+  </body>
 </html>
