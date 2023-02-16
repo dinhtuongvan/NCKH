@@ -72,8 +72,9 @@
     padding: 20px 20px 40px;
 }
 
-#cert__display{
+#img_preview{
     display: block;
+    margin: 0 auto;
     background-size: contain;
     background-repeat: no-repeat;
     max-width: 500px;

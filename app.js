@@ -39,7 +39,7 @@ function renderCourses(courses) {
     return `
     <div class="row mt30 cert_custom">
         <div class="col l-4">
-          <div style="background-image: ${course.img};" alt="" class="cert__img"></div>
+          <img src="${course.img}" alt="" class="cert__img">
         </div>
         <div class="col l-8">
           <div class="cert__info-wrap">
@@ -97,7 +97,7 @@ function handleCreateForm() {
   var createBtn = document.querySelector("#create");
 
   createBtn.onclick = function () {
-    var img = document.querySelector('#cert__display').getAttribute('background-image')
+    var img = document.querySelector('#img_preview').getAttribute('src')
     var id = document.querySelector('input[name="id"]').value;
     var name = document.querySelector('input[name="name"]').value;
     var receiver = document.querySelector('input[name="receiver"]').value;
