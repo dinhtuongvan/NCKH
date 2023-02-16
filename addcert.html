@@ -27,10 +27,25 @@
         <div class="col l-6 cert__info">
           <div class="row mb-10">
             <div class="col l-4">
+              <div class="cert__title">ID chứng chỉ</div>
+            </div>
+            <div class="col l-8">
+              <input
+                name="id"
+                type="text"
+                class="cert__receiver"
+                placeholder="Nhập ID chứng chỉ"
+              />
+            </div>
+          </div>
+
+          <div class="row mb-10">
+            <div class="col l-4">
               <div class="cert__title">Tên chứng chỉ</div>
             </div>
             <div class="col l-8">
               <input
+                name="name"
                 type="text"
                 class="cert__name"
                 placeholder="Nhập tên chứng chỉ"
@@ -44,6 +59,7 @@
             </div>
             <div class="col l-8">
               <input
+                name="receiver"
                 type="text"
                 class="cert__receiver"
                 placeholder="Nhập tên sinh viên"
@@ -57,9 +73,11 @@
             </div>
             <div class="col l-8">
               <input
-                type="text"
+                name="date"
+                type="date"
                 class="cert__date"
                 placeholder="Nhập ngày phát hành"
+                onchange="console.log(this.value);"
               />
             </div>
           </div>
@@ -70,9 +88,11 @@
             </div>
             <div class="col l-8">
               <input
-                type="text"
+                name="outdate"
+                type="date"
                 class="cert__outdate"
                 placeholder="Nhập ngày hết hạn"
+                onchange="console.log(this.value);"
               />
             </div>
           </div>
@@ -83,6 +103,7 @@
             </div>
             <div class="col l-8">
               <input
+                name="rank"
                 type="text"
                 class="cert__rank"
                 placeholder="Nhập xếp loại"
@@ -96,6 +117,7 @@
             </div>
             <div class="col l-8">
               <input
+                name="issuer"
                 type="text"
                 class="cert__issuer"
                 placeholder="Nhập tên đơn vị"
@@ -103,31 +125,19 @@
             </div>
           </div>
 
-          <div class="row mb-10">
-            <div class="col l-4">
-              <div class="cert__title">Trạng thái phát hành</div>
-            </div>
-            <div class="col l-8">
-              <input
-                type="text"
-                class="cert__status"
-                placeholder="Nhập trạng thái phát hành"
-              />
-            </div>
-          </div>
-
-          <a href="" class="btn">Phát hành</a>
+        <a id="create" href="" class="btn">Phát hành</a>
         </div>
         <div class="col l-6">
           <div class="cert__load">
             <p class="cert__xyz">Hình ảnh chứng chỉ</p>
 
-            <div id="cert__display"></div>
-            <a href="" class="btn btn_cus">
+            <img id="img_preview" src="" height="200px"></img>
+            <a href="#" class="btn btn_cus">
               <input
+                onchange="previewFile()"
                 type="file"
                 name="uploadfile"
-                id="cert__img"
+                id="image"
                 style="display: none"
                 accept="image/png, image/jpg"
               />
@@ -140,63 +150,43 @@
     </div>
 
     <p w3-include-html="footer.html"></p>
+
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script>
       w3.includeHTML();
 
-      // const cert__img = document.querySelector("#cert__img");
-      // var uploaded__img = "";
-      // cert__img.addEventListener("change", function(){
+      // function UploadImg() {
+      //   const cert__img = document.querySelector("#cert__img");
+      //   var uploaded__img = "";
+      //   cert__img.addEventListener("change", function () {
       //     const reader = new FileReader();
       //     reader.addEventListener("load", () => {
-      //         uploaded__img = reader.result;
-      //         document.querySelector("#cert__display").style.backgroundImage = `url(${uploaded__img})`;
+      //       uploaded__img = reader.result;
+      //       document.querySelector(
+      //         "#cert__display"
+      //       ).style.backgroundImage = `url(${uploaded__img})`;
       //     });
 
       //     reader.readAsDataURL(this.files[0]);
-      // })
+      //   });
+      // }
 
-      const inputEl = document.getElementById("cert__img");
-      // Gets input element
+        function previewFile(){
+            const preview = document.querySelector('#img_preview');
+            const file = document.querySelector('#image').files[0];
+            const reader = new FileReader();
 
-      inputEl.addEventListener("change", () => {
-        // Listens for new input file
+            reader.addEventListener("load", function() {
+              //convert image file to base64 string
+              preview.src = reader.result;
+            }, false);
 
-        const file = inputEl.files[0];
-        // Gets file from input element
+            if(file){
+                reader.readAsDataURL(file)
+            }
 
-        const fr = new FileReader();
-        // Creates new FileReader object
-
-        fr.readAsDataURL(file);
-        // Set FileReader to output data as URL string
-
-        fr.addEventListener("load", () => {
-          // Waits for file reading to be complete
-
-          const url = fr.result;
-          // Save result
-
-          const img = new Image();
-          img.className = "img__display";
-          img.src = url;
-          //   document.getElementById("cert__display").append(fr.result);
-          document.getElementById("cert__display").appendChild(img);
-          // Make URL src of image and append to DOM
-        });
-      });
-
-      //Store Image in LocalStorage
-      inputEl.addEventListener("change", () => {
-        const file = inputEl.files[0];
-        const fr = new FileReader();
-        fr.readAsDataURL(file);
-
-        fr.addEventListener("load", () => {
-          const url = fr.result;
-          localStorage.setItem("image", url);
-          // Saves image to localStorage
-        });
-      });
+        }
     </script>
+    <script src="./app.js"></script>
   </body>
 </html>

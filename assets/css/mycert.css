@@ -24,6 +24,7 @@ span{
 }
 
 .cert__img{
+    margin-top: 7px;
     width: 350px;
     height: auto;
 }

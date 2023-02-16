@@ -73,6 +73,9 @@
 }
 
 #cert__display{
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
     max-width: 500px;
     min-height: 350px;
     min-width: 200px;
