@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.none{
+    width: 100%;
+    height: 30px;
+}
+
+.user__wrap{
+    margin-top: 30px !important;
+    margin-bottom: 60px !important;
+}
+
+.user__setting{
+    display: block;
+    width: 100%;
+    height: 430px;
+    background: #0970BC;
+    border-radius: 15px;
+}
+.user__avt--wrap{
+    position: relative;
+}
+.user__avt{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../image/uel_logo.png);
+    display: block;
+    width: 150px;
+    border-radius: 50%;
+    height: 150px;
+    margin: 0 auto;
+}
+.user__avt-btn{
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 117px;
+    right: 82px;
+}
+.user__avt-icon{}
+.user__name{
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    line-height: 20px;
+    margin-top: 20px;
+}
+.user__id{
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    line-height: 20px;
+    margin-top: 20px;
+}
+
+.btn{
+    display: block;
+    width: 150px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    line-height: 16px;
+    border-radius: 10px;
+    padding: 14px 20px;
+    text-align: center;
+    background: #0970BC;
+    margin: 20px auto 0;
+}
+
+.btn_cus{
+    background: #fff;
+    color: #0970BC;
+    margin-left: auto;
+    margin-right: auto;
+}
+.btn-s{
+    display: block;
+    width: 150px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    line-height: 16px;
+    border: solid 1px #fff;
+    border-radius: 10px;
+    padding: 14px 20px;
+    text-align: center;
+    margin: 23px auto 0;
+}
+
+.btn-s:hover{
+    background: #fff;
+    color: #000;
+}
+
+.user__info{
+    display: block;
+    width: 100%;
+    height: 600px;
+    background: #cfebff;
+    border-radius: 15px;
+}
+.user__info-item{
+    display: flex;
+    align-items: center;
+    margin-left: 53px;
+    margin-bottom: 30px;
+}
+.user__infor-icon{
+    color: #0970bc;
+    font-size: 30px;
+}
+.user__info-wrap{
+    margin-left: 20px;
+    width: 750px;
+    height: 55px;
+    border: solid 1.5px #fff;
+    border-radius: 9px;
+    padding-left: 20px;
+}
+.user__info-tag{
+    border: none;
+    background: transparent;
+    outline: none;
+}
+.user__infor-name{
+
+}
+
+.avt__label{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}

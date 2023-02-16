@@ -164,11 +164,13 @@
           })
         ) {
           alert("Đăng nhập thành công");
+          
           let current_user = user_records.filter((v) => {
             return v.email == email1 && v.psw == psw1;
           })[0];
           localStorage.setItem("name", current_user.name);
           localStorage.setItem("email", current_user.email);
+
           window.location.href = "metamask.html";
         } else {
           alert("Đăng nhập không thành công");

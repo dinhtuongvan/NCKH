@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/user.css">
+    <link rel="stylesheet" href="./assets/css/issuer.css">
     <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
     <script src="https://www.w3schools.com/lib/w3.js"></script>
 </head>
 <body>
-    <p w3-include-html="header_stu.html"></p>
+    <p w3-include-html="header.html"></p>
 
     <div class="grid wide user__wrap">
         <div class="row">
@@ -32,8 +32,8 @@
 
                         
                     </div>
-                    <p class="user__name">Đinh Tường Văn</p>
-                    <p class="user__id">K204110613</p>
+                    <p class="user__name">UEL</p>
+                    <!-- <p class="user__id">K204110613</p> -->
                     <a href="" class="btn-s">Chỉnh sửa</a>
                     <a onclick="Logout()" href="" class="btn btn_cus">
                         Đăng xuất
@@ -48,25 +48,10 @@
                         <i class="fa-solid fa-user user__infor-icon"></i>
                         <div class="user__info-wrap">
                             <input class="user__info-tag" placeholder="Full name" disabled>
-                            <div class="user__infor-name">Đinh Tường Văn</div>
+                            <div class="user__infor-name">Trường đại học Kinh tế - Luật</div>
                         </div>
                     </div>
 
-                    <div class="user__info-item">
-                        <i class="fa-solid fa-calendar user__infor-icon"></i>
-                        <div class="user__info-wrap">
-                            <input class="user__info-tag" placeholder="Date of birth" disabled>
-                            <div class="user__infor-name">22/05/2002</div>
-                        </div>
-                    </div>
-
-                    <div class="user__info-item">
-                        <i class="fa-solid fa-venus user__infor-icon"></i>
-                        <div class="user__info-wrap">
-                            <input class="user__info-tag" placeholder="Gender" disabled>
-                            <div class="user__infor-name">Nam</div>
-                        </div>
-                    </div>
 
                     <div class="user__info-item">
                         <i class="fa-solid fa-phone user__infor-icon"></i>
@@ -80,15 +65,15 @@
                         <i class="fa-solid fa-envelope user__infor-icon"></i>
                         <div class="user__info-wrap">
                             <input class="user__info-tag" placeholder="Email" disabled>
-                            <div class="user__infor-name">dinhtuongvan225@gmail.com</div>
+                            <div class="user__infor-name">daihockinhteluat@gmail.com</div>
                         </div>
                     </div>
 
                     <div class="user__info-item">
-                        <i class="fa-solid fa-book user__infor-icon"></i>
+                        <i class="fa-solid fa-location-dot user__infor-icon"></i>
                         <div class="user__info-wrap">
-                            <input class="user__info-tag" placeholder="Major" disabled>
-                            <div class="user__infor-name">Thương Mại Điện Tử</div>
+                            <input class="user__info-tag" placeholder="Address" disabled>
+                            <div class="user__infor-name">669 QL1A, khu phố 3, Thủ Đức, Thành phố Hồ Chí Minh</div>
                         </div>
                     </div>
 
@@ -115,19 +100,6 @@
     <p w3-include-html="footer.html"></p>
     <script>
         w3.includeHTML();
-
-        //Update image
-        const cert__img = document.querySelector("#avt__img");
-        var uploaded__img = "";
-        cert__img.addEventListener("change", function(){
-            const reader = new FileReader();
-            reader.addEventListener("load", () => {
-                uploaded__img = reader.result;
-                document.querySelector("#avt__display").style.backgroundImage = `url(${uploaded__img})`;
-            });
-
-            reader.readAsDataURL(this.files[0]);
-        })
 
         //Logout
         let name=localStorage.getItem('name')?localStorage.getItem('name'):''

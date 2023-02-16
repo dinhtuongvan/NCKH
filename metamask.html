@@ -64,16 +64,24 @@
         if (window.ethereum !== "undefined") {
           const accounts = await ethereum.request({
             method: "eth_requestAccounts",
-          });
+          });          
+        }
 
-          if (
+        if (
             typeof window.ethereum !== "undefined" &&
             window.ethereum.isConnected()
           ) {
-            // Metamask is connected
+
+            let email = localStorage.getItem("email")
+            
+            if(email.includes("@st.uel.edu.vn")){
+                // Metamask is connected
+            window.location.href ="index_stu.html"
+            } else{ 
             window.location.href ="index.html"
+            }
+            
           }
-        }
       };
     </script>
   </body>
