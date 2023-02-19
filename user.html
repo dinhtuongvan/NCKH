@@ -1,149 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/user.css">
-    <link rel="stylesheet" href="./assets/css/grid.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/user.css" />
+    <link rel="stylesheet" href="./assets/css/grid.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>User</title>
     <script src="https://www.w3schools.com/lib/w3.js"></script>
-</head>
-<body>
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js">
+   </script>
+  </head>
+  <body>
     <p w3-include-html="header_stu.html"></p>
 
     <div class="grid wide user__wrap">
-        <div class="row">
-            <div class="col l-3">
-                <div class="user__setting">
-                    <div class="none"></div>
-                    <div class="user__avt--wrap">
-                        <div class="user__avt" id="avt__display"></div> 
-                        <a href="" class="user__avt-btn">
-                            <input type="file" name="uploadfile" id="avt__img" style="display:none;" accept="image/png, image/jpg"/>                        
-                            <label class="avt__label" for="avt__img">
-                            <i class="fa-solid fa-pen-to-square user__avt-icon"></i>
-                            </label>
-                        </a>
-
-                        
-                    </div>
-                    <p class="user__name">Đinh Tường Văn</p>
-                    <p class="user__id">K204110613</p>
-                    <a href="" class="btn-s">Chỉnh sửa</a>
-                    <a onclick="Logout()" href="" class="btn btn_cus">
-                        Đăng xuất
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                    </a>
-                </div>
+      <div class="row">
+        <div class="col l-3">
+          <div class="user__setting">
+            <div class="none"></div>
+            <div class="user__avt--wrap">
+              <div class="user__avt" id="avt__display"></div>
+              <a href="" class="user__avt-btn">
+                <input
+                  type="file"
+                  name="uploadfile"
+                  id="avt__img"
+                  style="display: none"
+                  accept="image/png, image/jpg"
+                />
+                <label class="avt__label" for="avt__img">
+                  <i class="fa-solid fa-pen-to-square user__avt-icon"></i>
+                </label>
+              </a>
             </div>
-            <div class="col l-9">
-                <div class="user__info">
-                    <div class="none"></div>
-                    <div class="user__info-item">
-                        <i class="fa-solid fa-user user__infor-icon"></i>
-                        <div class="user__info-wrap">
-                            <input class="user__info-tag" placeholder="Full name" disabled>
-                            <div class="user__infor-name">Đinh Tường Văn</div>
-                        </div>
-                    </div>
-
-                    <div class="user__info-item">
-                        <i class="fa-solid fa-calendar user__infor-icon"></i>
-                        <div class="user__info-wrap">
-                            <input class="user__info-tag" placeholder="Date of birth" disabled>
-                            <div class="user__infor-name">22/05/2002</div>
-                        </div>
-                    </div>
-
-                    <div class="user__info-item">
-                        <i class="fa-solid fa-venus user__infor-icon"></i>
-                        <div class="user__info-wrap">
-                            <input class="user__info-tag" placeholder="Gender" disabled>
-                            <div class="user__infor-name">Nam</div>
-                        </div>
-                    </div>
-
-                    <div class="user__info-item">
-                        <i class="fa-solid fa-phone user__infor-icon"></i>
-                        <div class="user__info-wrap">
-                            <input class="user__info-tag" placeholder="Phone" disabled>
-                            <div class="user__infor-name">0123 456 78</div>
-                        </div>
-                    </div>
-
-                    <div class="user__info-item">
-                        <i class="fa-solid fa-envelope user__infor-icon"></i>
-                        <div class="user__info-wrap">
-                            <input class="user__info-tag" placeholder="Email" disabled>
-                            <div class="user__infor-name">dinhtuongvan225@gmail.com</div>
-                        </div>
-                    </div>
-
-                    <div class="user__info-item">
-                        <i class="fa-solid fa-book user__infor-icon"></i>
-                        <div class="user__info-wrap">
-                            <input class="user__info-tag" placeholder="Major" disabled>
-                            <div class="user__infor-name">Thương Mại Điện Tử</div>
-                        </div>
-                    </div>
-
-                    <div class="user__info-item">
-                        <i class="fa-solid fa-lock user__infor-icon"></i>
-                        <div class="user__info-wrap">
-                            <input class="user__info-tag" placeholder="Account" disabled>
-                            <div class="user__infor-name">dinhtuongvan225</div>
-                        </div>
-                    </div>
-
-                    <div class="user__info-item">
-                        <i class="fa-sharp fa-solid fa-key user__infor-icon"></i>
-                        <div class="user__info-wrap">
-                            <input class="user__info-tag" placeholder="Password" disabled>
-                            <div class="user__infor-name">123456789</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <p class="user__name">Đinh Tường Văn</p>
+            <p class="user__id">K204110613</p>
+            <a href="" class="btn-s">Chỉnh sửa</a>
+            <a onclick="Logout()" href="" class="btn btn_cus">
+              Đăng xuất
+              <i class="fa-solid fa-right-from-bracket"></i>
+            </a>
+          </div>
         </div>
+        <div class="col l-9">
+          <div class="user__info">
+            <div class="none"></div>
+            <div class="user__info-item">
+              <i class="fa-solid fa-user user__infor-icon"></i>
+              <div class="user__info-wrap">
+                <input
+                  class="user__info-tag"
+                  placeholder="Full name"
+                  disabled
+                />
+                <div class="user__infor-name">Đinh Tường Văn</div>
+              </div>
+            </div>
+
+            <div class="user__info-item">
+              <i class="fa-solid fa-calendar user__infor-icon"></i>
+              <div class="user__info-wrap">
+                <input
+                  class="user__info-tag"
+                  placeholder="Date of birth"
+                  disabled
+                />
+                <div class="user__infor-name">22/05/2002</div>
+              </div>
+            </div>
+
+            <div class="user__info-item">
+              <i class="fa-solid fa-venus user__infor-icon"></i>
+              <div class="user__info-wrap">
+                <input class="user__info-tag" placeholder="Gender" disabled />
+                <div class="user__infor-name">Nam</div>
+              </div>
+            </div>
+
+            <div class="user__info-item">
+              <i class="fa-solid fa-phone user__infor-icon"></i>
+              <div class="user__info-wrap">
+                <input class="user__info-tag" placeholder="Phone" disabled />
+                <div class="user__infor-name">0123 456 78</div>
+              </div>
+            </div>
+
+            <div class="user__info-item">
+              <i class="fa-solid fa-envelope user__infor-icon"></i>
+              <div class="user__info-wrap">
+                <input class="user__info-tag" placeholder="Email" disabled />
+                <div class="user__infor-name">dinhtuongvan225@gmail.com</div>
+              </div>
+            </div>
+
+            <div class="user__info-item">
+              <i class="fa-solid fa-book user__infor-icon"></i>
+              <div class="user__info-wrap">
+                <input class="user__info-tag" placeholder="Major" disabled />
+                <div class="user__infor-name">Thương Mại Điện Tử</div>
+              </div>
+            </div>
+
+            <div class="user__info-item">
+              <i class="fa-solid fa-lock user__infor-icon"></i>
+              <div class="user__info-wrap">
+                <input class="user__info-tag" placeholder="Account" disabled />
+                <div class="user__infor-name">dinhtuongvan225</div>
+              </div>
+            </div>
+
+            <div class="user__info-item">
+              <i class="fa-sharp fa-solid fa-key user__infor-icon"></i>
+              <div class="user__info-wrap">
+                <input class="user__info-tag" placeholder="Password" disabled />
+                <div class="user__infor-name">123456789</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <p w3-include-html="footer.html"></p>
     <script>
-        w3.includeHTML();
+      w3.includeHTML();
 
-        //Update image
-        const cert__img = document.querySelector("#avt__img");
-        var uploaded__img = "";
-        cert__img.addEventListener("change", function(){
-            const reader = new FileReader();
-            reader.addEventListener("load", () => {
-                uploaded__img = reader.result;
-                document.querySelector("#avt__display").style.backgroundImage = `url(${uploaded__img})`;
-            });
+      //Update image
+      // const cert__img = document.querySelector("#avt__img");
+      // var uploaded__img = "";
+      // cert__img.addEventListener("change", function(){
+      //     const reader = new FileReader();
+      //     reader.addEventListener("load", () => {
+      //         uploaded__img = reader.result;
+      //         document.querySelector("#avt__display").style.backgroundImage = `url(${uploaded__img})`;
+      //     });
 
-            reader.readAsDataURL(this.files[0]);
-        })
+      //     reader.readAsDataURL(this.files[0]);
+      // })
 
-        //Logout
-        let name=localStorage.getItem('name')?localStorage.getItem('name'):''
-        console.log(name);
-        if(name=='')
-        {
+      //1- connect metamask
+      let account;
+      const connectMetamask = async () => {
+        if (window.ethereum !== "undefined") {
+          const accounts = await ethereum.request({
+            method: "eth_requestAccounts",
+          });
+          account = accounts[0];
+          document.getElementById("accountArea").innerHTML = account;
+        }
+      };
+
+      //2- connect smart contract
+      const addCertificate = async () => {
+        const ABI = [
+          {
+            inputs: [
+              {
+                internalType: "uint256",
+                name: "_idCertificate",
+                type: "uint256",
+              },
+              {
+                internalType: "string",
+                name: "_nameCertificate",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "_nameStudent",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "_releaseDate",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "_expirationDate",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "_issuer",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "_idStudent",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "_grade",
+                type: "string",
+              },
+            ],
+            name: "addCertificate",
+            outputs: [],
+            stateMutability: "nonpayable",
+            type: "function",
+          },
+          {
+            inputs: [
+              {
+                internalType: "string",
+                name: "_idStudent",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "_name",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "_majors",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "_sex",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "_birth",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "_email",
+                type: "string",
+              },
+            ],
+            name: "addStudent",
+            outputs: [],
+            stateMutability: "nonpayable",
+            type: "function",
+          },
+          {
+            inputs: [],
+            stateMutability: "nonpayable",
+            type: "constructor",
+          },
+          {
+            anonymous: false,
+            inputs: [
+              {
+                indexed: false,
+                internalType: "uint256",
+                name: "certificateId",
+                type: "uint256",
+              },
+              {
+                indexed: false,
+                internalType: "string",
+                name: "nameCertificate",
+                type: "string",
+              },
+              {
+                indexed: false,
+                internalType: "string",
+                name: "nameStudent",
+                type: "string",
+              },
+            ],
+            name: "savedCertificate",
+            type: "event",
+          },
+          {
+            anonymous: false,
+            inputs: [
+              {
+                indexed: false,
+                internalType: "string",
+                name: "idStudent",
+                type: "string",
+              },
+              {
+                indexed: false,
+                internalType: "string",
+                name: "name",
+                type: "string",
+              },
+            ],
+            name: "savedStudent",
+            type: "event",
+          },
+          {
+            inputs: [
+              {
+                internalType: "uint256",
+                name: "_idCertificate",
+                type: "uint256",
+              },
+            ],
+            name: "getCertificateById",
+            outputs: [
+              {
+                internalType: "uint256",
+                name: "",
+                type: "uint256",
+              },
+              {
+                internalType: "string",
+                name: "",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "",
+                type: "string",
+              },
+              {
+                internalType: "string",
+                name: "",
+                type: "string",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [
+              {
+                internalType: "string",
+                name: "_idStudent",
+                type: "string",
+              },
+            ],
+            name: "getCertificatesByStudentId",
+            outputs: [
+              {
+                internalType: "uint256[]",
+                name: "",
+                type: "uint256[]",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [
+              {
+                internalType: "string",
+                name: "_idStudent",
+                type: "string",
+              },
+            ],
+            name: "getStudentCertificates",
+            outputs: [
+              {
+                components: [
+                  {
+                    internalType: "uint256",
+                    name: "idCertificate",
+                    type: "uint256",
+                  },
+                  {
+                    internalType: "string",
+                    name: "nameCertificate",
+                    type: "string",
+                  },
+                  {
+                    internalType: "string",
+                    name: "nameStudent",
+                    type: "string",
+                  },
+                  {
+                    internalType: "string",
+                    name: "releaseDate",
+                    type: "string",
+                  },
+                  {
+                    internalType: "string",
+                    name: "expirationDate",
+                    type: "string",
+                  },
+                  {
+                    internalType: "string",
+                    name: "issuer",
+                    type: "string",
+                  },
+                  {
+                    internalType: "string",
+                    name: "grade",
+                    type: "string",
+                  },
+                ],
+                internalType: "struct CertificateManagement.Certificate[]",
+                name: "",
+                type: "tuple[]",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+        ];
+        const Address = "0x0949aa7639822d96330943043f382e8149D8320B";
+        window.web3 = await new Web3(window.ethereum);
+        window.contract = await new window.web3.eth.Contract(ABI, Address);
+
+        //3- get data from smart contract
+        
+
+
+      };
+
+      //Logout
+      let name = localStorage.getItem("name")
+        ? localStorage.getItem("name")
+        : "";
+      console.log(name);
+      if (name == "") {
         //   alert('U need to login first');
-          window.location.href="login.html";
-        }
+        window.location.href = "login.html";
+      }
 
-        function Logout()
-        {
-          localStorage.removeItem('name');
-          localStorage.removeItem('email');
-          window.location.href="login.html";
-        }
+      function Logout() {
+        localStorage.removeItem("name");
+        localStorage.removeItem("email");
+        window.location.href = "login.html";
+      }
     </script>
-</body>
+  </body>
 </html>
