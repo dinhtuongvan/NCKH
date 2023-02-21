@@ -1,7 +1,7 @@
-var coursesApi = "http://localhost:3000/courses";
+var certificatesApi = "http://localhost:3000/certificates";
 
 function start() {
-  getCourses(renderCourses);
+  getCertificates(renderCertificates);
 
   handleCreateForm();
 }
@@ -9,15 +9,15 @@ function start() {
 start();
 
 //Functions
-function getCourses(callback) {
-  fetch(coursesApi)
+function getCertificates(callback) {
+  fetch(certificatesApi)
     .then(function (response) {
       return response.json();
     })
     .then(callback);
 }
 
-function createCourse(data, callback) {
+function createCertificate(data, callback) {
   var options = {
     method: "POST",
     headers: {
@@ -25,49 +25,49 @@ function createCourse(data, callback) {
     },
     body: JSON.stringify(data),
   };
-  fetch(coursesApi, options)
+  fetch(certificatesApi, options)
     .then(function (response) {
       response.json();
     })
     .then(callback);
 }
 
-function renderCourses(courses) {
-  var listCoursesBlock = document.querySelector("#cert_custom");
+function renderCertificates(certificates) {
+  var listCertificatesBlock = document.querySelector("#cert_custom");
 
-  var htmls = courses.map(function (course) {
+  var htmls = certificates.map(function (certificate) {
     return `
     <div class="row mt30 cert_custom">
         <div class="col l-4">
-          <img src="${course.img}" alt="" class="cert__img">
+          <img src="${certificate.img}" alt="" class="cert__img">
         </div>
         <div class="col l-8">
           <div class="cert__info-wrap">
             <div class="cert__info">
-              <h1 class="cert__name">${course.name}</h1>
+              <h1 class="cert__name">${certificate.name}</h1>
               <div class="cert__detail--wrap">
                 <p class="label">ID:</p>
-                <p class="cert__id">${course.id}</p>
+                <p class="cert__id">${certificate.id}</p>
               </div>
               <div class="cert__detail--wrap">
                 <p class="label">Họ tên:</p>
-                <p class="cert__receiver">${course.receiver}</p>
+                <p class="cert__receiver">${certificate.receiver}</p>
               </div>
               <div class="cert__detail--wrap">
                 <p class="label">Ngày phát hành:</p>
-                <p class="cert__receiver">${course.date}</p>
+                <p class="cert__receiver">${certificate.date}</p>
               </div>
               <div class="cert__detail--wrap">
                 <p class="label">Ngày hết hạn:</p>
-                <p class="cert__receiver">${course.outdate}</p>
+                <p class="cert__receiver">${certificate.outdate}</p>
               </div>
               <div class="cert__detail--wrap">
                 <p class="label">Xếp loại:</p>
-                <p class="cert__receiver">${course.rank}</p>
+                <p class="cert__receiver">${certificate.rank}</p>
               </div>
               <div class="cert__detail--wrap">
                 <p class="label">Đơn vị phát hành:</p>
-                <p class="cert__receiver">${course.issuer}</p>
+                <p class="cert__receiver">${certificate.issuer}</p>
               </div>
               <div class="cert__detail--wrap">
                 <p class="label">Trạng thái:</p>
@@ -90,13 +90,305 @@ function renderCourses(courses) {
     `;
   });
 
-  listCoursesBlock.innerHTML = htmls.join("");
+  listCertificatesBlock.innerHTML = htmls.join("");
 }
 
 function handleCreateForm() {
   var createBtn = document.querySelector("#create");
+  
+  createBtn.onclick = async function () {
 
-  createBtn.onclick = function () {
+    let account;
+
+    if (window.ethereum !== "undefined") {
+      const accounts = await ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      account = accounts[0];
+    }
+
+    const ABI = [
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_idCertificate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "_nameCertificate",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "_nameStudent",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "_releaseDate",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "_expirationDate",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "_issuer",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "_idStudent",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "_grade",
+            "type": "string"
+          }
+        ],
+        "name": "addCertificate",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "_idStudent",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "_name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "_majors",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "_sex",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "_birth",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "_email",
+            "type": "string"
+          }
+        ],
+        "name": "addStudent",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "certificateId",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "nameCertificate",
+            "type": "string"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "nameStudent",
+            "type": "string"
+          }
+        ],
+        "name": "savedCertificate",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "idStudent",
+            "type": "string"
+          },
+          {
+            "indexed": false,
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "name": "savedStudent",
+        "type": "event"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_idCertificate",
+            "type": "uint256"
+          }
+        ],
+        "name": "getCertificateById",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "_idStudent",
+            "type": "string"
+          }
+        ],
+        "name": "getCertificatesByStudentId",
+        "outputs": [
+          {
+            "internalType": "uint256[]",
+            "name": "",
+            "type": "uint256[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "_idStudent",
+            "type": "string"
+          }
+        ],
+        "name": "getStudentCertificates",
+        "outputs": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "idCertificate",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "nameCertificate",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "nameStudent",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "releaseDate",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "expirationDate",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "issuer",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "grade",
+                "type": "string"
+              }
+            ],
+            "internalType": "struct CertificateManagement.Certificate[]",
+            "name": "",
+            "type": "tuple[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ];
+    const Address = "0xA0Fb9CbA3C58Fd4eA7050388657Bc91041518340";
+    window.web3 = await new Web3(window.ethereum);
+    window.contract = await new window.web3.eth.Contract(ABI, Address);
+
+
+    //3- send certificate data to Blockchain
+    let _idCertificate, _nameCertificate, _nameStudent,_releaseDate,_expirationDate, _issuer, _grade,_idStudent;
+            _idCertificate = document.getElementById("idCertificate").value;
+            _nameCertificate = document.getElementById("nameCertificate").value;
+            _nameStudent = document.getElementById("nameStudent").value;
+            _releaseDate = document.getElementById("releaseDate").value;
+            _expirationDate = document.getElementById("expirationDate").value;
+            _issuer = document.getElementById("issuer").value;
+            _idStudent = document.getElementById("idStudent").value;
+            _grade= document.getElementById("grade").value;
+
+
+            await window.contract.methods.addCertificate(_idCertificate, _nameCertificate, _nameStudent,_releaseDate,_expirationDate, _issuer,_idStudent, _grade).send({ from: account });
+
+
+    //get certificate data to Store in JSon server
     var img = document.querySelector('#img_preview').getAttribute('src')
     var id = document.querySelector('input[name="id"]').value;
     var name = document.querySelector('input[name="name"]').value;
@@ -116,8 +408,8 @@ function handleCreateForm() {
       issuer: issuer,
       rank: rank
     };
-    createCourse(formData, function () {
-      getCourses(renderCourses);
+    createCertificate(formData, function () {
+      getCertificates(renderCertificates);
     });
   };
 }

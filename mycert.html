@@ -19,14 +19,73 @@
     <title>My Certificate</title>
     <script src="https://www.w3schools.com/lib/w3.js"></script>
     <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js">
-   </script>
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"
+    ></script>
   </head>
   <body>
-    <p w3-include-html="header_stu.html"></p>
+    <!-- Header Student -->
+    <div class="header">
+      <div class="header__logo">
+        <a href="/" class="header__logo-link">
+          <img
+            src="./assets/image/logo_Black.png"
+            alt=""
+            class="header__logo-img"
+          />
+        </a>
+      </div>
 
-    <div class="grid wide cert__wrap">
+      <div class="header__search">
+        <input
+          type="text"
+          class="header__search-input"
+          placeholder="Nhập để tìm kiếm"
+        />
+        <button class="header__search-btn">
+          <i class="fa-solid fa-magnifying-glass header__search-icon"></i>
+        </button>
+      </div>
+
+      <div class="user">
+        <a href="user.html" class="user__icon">
+          <i class="fa-solid fa-user user__icon--link"></i>
+        </a>
+        <a href="" class="user__icon">
+          <i class="fa-solid fa-bell user__icon--link"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="header__nav">
+      <ul class="header__nav-list">
+        <li class="header__nav-item">
+          <a href="index_stu.html" class="header__nav-item--link">Trang chủ</a>
+        </li>
+
+        <li class="header__nav-item">
+          <a onclick="showCertificate()" href="#" class="header__nav-item--link"
+            >Chứng chỉ của tôi</a
+          >
+        </li>
+
+        <li class="header__nav-item">
+          <a href="user.html" class="header__nav-item--link"
+            >Thông tin cá nhân</a
+          >
+        </li>
+
+        <li class="header__nav-item">
+          <a href="#" class="header__nav-item--link">Liên hệ</a>
+        </li>
+
+        <li class="header__nav-item">
+          <a href="#" class="header__nav-item--link">Hỗ trợ</a>
+        </li>
+      </ul>
+    </div>
+    <!--  -->
+    <div id="cert_auto" class="grid wide cert__wrap">
       <div class="row mt30 cert_custom">
         <div class="col l-4">
           <img src="./assets/image/toeic.jpg" alt="" class="cert__img" />
@@ -177,23 +236,23 @@
     </div>
 
     <p w3-include-html="footer.html"></p>
+
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script>
       w3.includeHTML();
 
       //1- connect metamask
       let account;
-      const connectMetamask = async () => {
+
+      //2- connect smart contract
+      const showCertificate = async () => {
         if (window.ethereum !== "undefined") {
           const accounts = await ethereum.request({
             method: "eth_requestAccounts",
           });
           account = accounts[0];
-          document.getElementById("accountArea").innerHTML = account;
         }
-      };
 
-      //2- connect smart contract
-      const getCertificates = async () => {
         const ABI = [
           {
             inputs: [
@@ -455,73 +514,94 @@
             type: "function",
           },
         ];
-        const Address = "0x0949aa7639822d96330943043f382e8149D8320B";
+        const Address = "0xA0Fb9CbA3C58Fd4eA7050388657Bc91041518340";
         window.web3 = await new Web3(window.ethereum);
         window.contract = await new window.web3.eth.Contract(ABI, Address);
 
         //3- get data from smart contract
         const data = await window.contract.methods
-          .getStudentCertificates("1")
+          .getStudentCertificates("66")
           .call();
 
-        var listCoursesBlock = document.querySelector("#cert_auto");
 
-        var htmls = data.map(function (data_item) {
-          return `
-    <div class="row mt30 cert_custom">
-        <div class="col l-4">
-          <img src="" alt="" class="cert__img">
-        </div>
-        <div class="col l-8">
-          <div class="cert__info-wrap">
-            <div class="cert__info">
-              <h1 class="cert__name">${data_item[0]}</h1>
-              <div class="cert__detail--wrap">
-                <p class="label">ID:</p>
-                <p class="cert__id">${data_item[1]}</p>
-              </div>
-              <div class="cert__detail--wrap">
-                <p class="label">Họ tên:</p>
-                <p class="cert__receiver">${data_item[2]}</p>
-              </div>
-              <div class="cert__detail--wrap">
-                <p class="label">Ngày phát hành:</p>
-                <p class="cert__receiver">${data_item[3]}</p>
-              </div>
-              <div class="cert__detail--wrap">
-                <p class="label">Ngày hết hạn:</p>
-                <p class="cert__receiver">${data_item[4]}</p>
-              </div>
-              <div class="cert__detail--wrap">
-                <p class="label">Xếp loại:</p>
-                <p class="cert__receiver">${data_item[5]}</p>
-              </div>
-              <div class="cert__detail--wrap">
-                <p class="label">Đơn vị phát hành:</p>
-                <p class="cert__receiver">${data_item[6]}</p>
-              </div>
-              <div class="cert__detail--wrap">
-                <p class="label">Trạng thái:</p>
-                <p class="cert__status">
-                  <span>Đang phát hành</span>
-                </p>
-              </div>
+        //get data from server
+        fetch("http://localhost:3000/certificates")
+          .then((response) => response.json())
+          .then((dataServer) => {
+            // Here, the "data" variable contains the parsed JSON data.
+            
+            dataServer.map(myFunction)
+          })
 
-              <p class="cert__date"></p>
-              <p class="cert__outdate"></p>
-              <p class="cert__rank"></p>
-              <p class="cert__issuer"></p>
+        var htmls ="";
+        function myFunction(obj){
+          for(let i = 0; i< data.length; i++){
+            let imgSrc = ""
+            if(obj["id"] == data[i][0]){
+              imgSrc = obj.img;
+              
+            var html = 
+         `
+          <div class="row mt30 cert_custom">
+              <div class="col l-4">
+                <img src="${imgSrc}" alt="" class="cert__img">
+              </div>
+              <div class="col l-8">
+                <div class="cert__info-wrap">
+                  <div class="cert__info">
+                    <h1 class="cert__name">${data[i][1]}</h1>
+                    <div class="cert__detail--wrap">
+                      <p class="label">ID:</p>
+                      <p class="cert__id">${data[i][0]}</p>
+                    </div>
+                    <div class="cert__detail--wrap">
+                      <p class="label">Họ tên:</p>
+                      <p class="cert__receiver">${data[i][2]}</p>
+                    </div>
+                    <div class="cert__detail--wrap">
+                      <p class="label">Ngày phát hành:</p>
+                      <p class="cert__receiver">${data[i][3]}</p>
+                    </div>
+                    <div class="cert__detail--wrap">
+                      <p class="label">Ngày hết hạn:</p>
+                      <p class="cert__receiver">${data[i][4]}</p>
+                    </div>
+                    <div class="cert__detail--wrap">
+                      <p class="label">Xếp loại:</p>
+                      <p class="cert__receiver">${data[i][5]}</p>
+                    </div>
+                    <div class="cert__detail--wrap">
+                      <p class="label">Đơn vị phát hành:</p>
+                      <p class="cert__receiver">${data[i][6]}</p>
+                    </div>
+                    <div class="cert__detail--wrap">
+                      <p class="label">Trạng thái:</p>
+                      <p class="cert__status">
+                        <span>Đang phát hành</span>
+                      </p>
+                    </div>
+      
+                    <p class="cert__date"></p>
+                    <p class="cert__outdate"></p>
+                    <p class="cert__rank"></p>
+                    <p class="cert__issuer"></p>
+                  </div>
+                  <a href="#" class="cert__code"
+                    >Nhận mã chứng chỉ</a
+                  >
+                </div>
+              </div>
             </div>
-            <a href="#" class="cert__code"
-              >Nhận mã chứng chỉ</a
-            >
-          </div>
-        </div>
-      </div>
-    `;
-        });
+          `;
+          
+          htmls+= "" +html;
+          listCertificatesBlock.innerHTML = htmls
+            }
+          }
+        }
 
-        listCoursesBlock.innerHTML = htmls.join("");
+        var listCertificatesBlock = document.querySelector("#cert_auto");  
+
       };
     </script>
   </body>

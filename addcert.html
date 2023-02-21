@@ -34,7 +34,7 @@
               <div class="cert__title">ID chứng chỉ</div>
             </div>
             <div class="col l-8">
-              <input
+              <input id="idCertificate"
                 name="id"
                 type="text"
                 class="cert__receiver"
@@ -48,7 +48,7 @@
               <div class="cert__title">Tên chứng chỉ</div>
             </div>
             <div class="col l-8">
-              <input
+              <input id="nameCertificate"
                 name="name"
                 type="text"
                 class="cert__name"
@@ -62,11 +62,24 @@
               <div class="cert__title">Tên sinh viên</div>
             </div>
             <div class="col l-8">
-              <input
+              <input id="nameStudent"
                 name="receiver"
                 type="text"
                 class="cert__receiver"
                 placeholder="Nhập tên sinh viên"
+              />
+            </div>
+          </div>
+          <div class="row mb-10">
+            <div class="col l-4">
+              <div class="cert__title">Id sinh viên</div>
+            </div>
+            <div class="col l-8">
+              <input id="idStudent"
+                name="receiver"
+                type="text"
+                class="cert__receiver"
+                placeholder="Nhập id sinh viên"
               />
             </div>
           </div>
@@ -76,7 +89,7 @@
               <div class="cert__title">Ngày phát hành</div>
             </div>
             <div class="col l-8">
-              <input
+              <input id="releaseDate"
                 name="date"
                 type="date"
                 class="cert__date"
@@ -91,7 +104,7 @@
               <div class="cert__title">Ngày hết hạn</div>
             </div>
             <div class="col l-8">
-              <input
+              <input id="expirationDate"
                 name="outdate"
                 type="date"
                 class="cert__outdate"
@@ -106,7 +119,7 @@
               <div class="cert__title">Xếp loại</div>
             </div>
             <div class="col l-8">
-              <input
+              <input id="grade"
                 name="rank"
                 type="text"
                 class="cert__rank"
@@ -120,7 +133,7 @@
               <div class="cert__title">Đơn vị phát hành</div>
             </div>
             <div class="col l-8">
-              <input
+              <input id="issuer"
                 name="issuer"
                 type="text"
                 class="cert__issuer"
@@ -128,8 +141,10 @@
               />
             </div>
           </div>
+          
+            
 
-        <a id="create" href="" class="btn">Phát hành</a>
+        <a id="create" href="#" class="btn">Phát hành</a>
         </div>
         <div class="col l-6">
           <div class="cert__load">
@@ -151,6 +166,7 @@
           </div>
         </div>
       </div>
+
     </div>
 
     <p w3-include-html="footer.html"></p>
@@ -159,23 +175,7 @@
     <script>
       w3.includeHTML();
 
-      // function UploadImg() {
-      //   const cert__img = document.querySelector("#cert__img");
-      //   var uploaded__img = "";
-      //   cert__img.addEventListener("change", function () {
-      //     const reader = new FileReader();
-      //     reader.addEventListener("load", () => {
-      //       uploaded__img = reader.result;
-      //       document.querySelector(
-      //         "#cert__display"
-      //       ).style.backgroundImage = `url(${uploaded__img})`;
-      //     });
-
-      //     reader.readAsDataURL(this.files[0]);
-      //   });
-      // }
-
-        function previewFile(){
+      function previewFile(){
             const preview = document.querySelector('#img_preview');
             const file = document.querySelector('#image').files[0];
             const reader = new FileReader();
@@ -190,286 +190,286 @@
             }
           }
 
-          //1- connect metamask
+      
+        //1- connect metamask
       let account;
-      const connectMetamask = async () => {
+      //2- connect smart contract
+      const addCert = async () => {
+
         if (window.ethereum !== "undefined") {
           const accounts = await ethereum.request({
             method: "eth_requestAccounts",
           });
           account = accounts[0];
-          document.getElementById("accountArea").innerHTML = account;
         }
-      };
 
-      //2- connect smart contract
-      const addCertificate = async () => {
         const ABI = [
-          {
-            inputs: [
-              {
-                internalType: "uint256",
-                name: "_idCertificate",
-                type: "uint256",
-              },
-              {
-                internalType: "string",
-                name: "_nameCertificate",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_nameStudent",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_releaseDate",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_expirationDate",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_issuer",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_idStudent",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_grade",
-                type: "string",
-              },
-            ],
-            name: "addCertificate",
-            outputs: [],
-            stateMutability: "nonpayable",
-            type: "function",
-          },
-          {
-            inputs: [
-              {
-                internalType: "string",
-                name: "_idStudent",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_name",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_majors",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_sex",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_birth",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_email",
-                type: "string",
-              },
-            ],
-            name: "addStudent",
-            outputs: [],
-            stateMutability: "nonpayable",
-            type: "function",
-          },
-          {
-            inputs: [],
-            stateMutability: "nonpayable",
-            type: "constructor",
-          },
-          {
-            anonymous: false,
-            inputs: [
-              {
-                indexed: false,
-                internalType: "uint256",
-                name: "certificateId",
-                type: "uint256",
-              },
-              {
-                indexed: false,
-                internalType: "string",
-                name: "nameCertificate",
-                type: "string",
-              },
-              {
-                indexed: false,
-                internalType: "string",
-                name: "nameStudent",
-                type: "string",
-              },
-            ],
-            name: "savedCertificate",
-            type: "event",
-          },
-          {
-            anonymous: false,
-            inputs: [
-              {
-                indexed: false,
-                internalType: "string",
-                name: "idStudent",
-                type: "string",
-              },
-              {
-                indexed: false,
-                internalType: "string",
-                name: "name",
-                type: "string",
-              },
-            ],
-            name: "savedStudent",
-            type: "event",
-          },
-          {
-            inputs: [
-              {
-                internalType: "uint256",
-                name: "_idCertificate",
-                type: "uint256",
-              },
-            ],
-            name: "getCertificateById",
-            outputs: [
-              {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-              },
-              {
-                internalType: "string",
-                name: "",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "",
-                type: "string",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-          {
-            inputs: [
-              {
-                internalType: "string",
-                name: "_idStudent",
-                type: "string",
-              },
-            ],
-            name: "getCertificatesByStudentId",
-            outputs: [
-              {
-                internalType: "uint256[]",
-                name: "",
-                type: "uint256[]",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-          {
-            inputs: [
-              {
-                internalType: "string",
-                name: "_idStudent",
-                type: "string",
-              },
-            ],
-            name: "getStudentCertificates",
-            outputs: [
-              {
-                components: [
-                  {
-                    internalType: "uint256",
-                    name: "idCertificate",
-                    type: "uint256",
-                  },
-                  {
-                    internalType: "string",
-                    name: "nameCertificate",
-                    type: "string",
-                  },
-                  {
-                    internalType: "string",
-                    name: "nameStudent",
-                    type: "string",
-                  },
-                  {
-                    internalType: "string",
-                    name: "releaseDate",
-                    type: "string",
-                  },
-                  {
-                    internalType: "string",
-                    name: "expirationDate",
-                    type: "string",
-                  },
-                  {
-                    internalType: "string",
-                    name: "issuer",
-                    type: "string",
-                  },
-                  {
-                    internalType: "string",
-                    name: "grade",
-                    type: "string",
-                  },
-                ],
-                internalType: "struct CertificateManagement.Certificate[]",
-                name: "",
-                type: "tuple[]",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-        ];
-        const Address = "0x0949aa7639822d96330943043f382e8149D8320B";
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_idCertificate",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_nameCertificate",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_nameStudent",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_releaseDate",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_expirationDate",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_issuer",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_idStudent",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_grade",
+				"type": "string"
+			}
+		],
+		"name": "addCertificate",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_idStudent",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_majors",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_sex",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_birth",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_email",
+				"type": "string"
+			}
+		],
+		"name": "addStudent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "certificateId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "nameCertificate",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "nameStudent",
+				"type": "string"
+			}
+		],
+		"name": "savedCertificate",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "idStudent",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			}
+		],
+		"name": "savedStudent",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_idCertificate",
+				"type": "uint256"
+			}
+		],
+		"name": "getCertificateById",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_idStudent",
+				"type": "string"
+			}
+		],
+		"name": "getCertificatesByStudentId",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_idStudent",
+				"type": "string"
+			}
+		],
+		"name": "getStudentCertificates",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "idCertificate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "nameCertificate",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "nameStudent",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "releaseDate",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "expirationDate",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "issuer",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "grade",
+						"type": "string"
+					}
+				],
+				"internalType": "struct CertificateManagement.Certificate[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+        const Address = "0xA0Fb9CbA3C58Fd4eA7050388657Bc91041518340";
         window.web3 = await new Web3(window.ethereum);
         window.contract = await new window.web3.eth.Contract(ABI, Address);
 
-        //3- send data
+
+        //3- send certificate data
         let _idCertificate, _nameCertificate, _nameStudent,_releaseDate,_expirationDate, _issuer, _grade,_idStudent;
             _idCertificate = document.getElementById("idCertificate").value;
             _nameCertificate = document.getElementById("nameCertificate").value;
