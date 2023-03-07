@@ -713,10 +713,10 @@ searchCertBtn.onclick = async function (){
               var html = 
            `
             <div class="row mt30 cert_custom">
-                <div class="col l-4">
+                <div class="col l-4 m-12 c-12">
                   <img src="${imgSrc}" alt="" class="cert__img">
                 </div>
-                <div class="col l-8">
+                <div class="col l-8 m-12 c-12">
                   <div class="cert__info-wrap">
                     <div class="cert__info">
                       <h1 class="cert__name">${data[1]}</h1>

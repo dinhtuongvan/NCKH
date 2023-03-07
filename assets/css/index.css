@@ -32,11 +32,12 @@
 }
 .partner__img-wrap{
     justify-content: center;
+    align-items: center;
     display: flex;
     margin-bottom: 40px;
     }
 .partner__img{
-    margin-left: 40px;
+    margin: 0 auto;
     display: block;
     width: 200px;
 }

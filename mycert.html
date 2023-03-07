@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="./assets/css/mycert.css" />
     <link rel="stylesheet" href="./assets/css/header_stu.css">
     <link rel="stylesheet" href="./assets/css/grid.css" />
+    <link rel="stylesheet" href="./assets/css/qr.css">
+	  <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -55,6 +57,10 @@
     </div>
 
     <div class="header__nav">
+      <input hidden type="checkbox" id="active_bar" />
+      <label for="active_bar" class="header__bar">
+        <i class="fa-solid fa-bars header__bar-icon"></i>
+      </label>
       <ul class="header__nav-list">
         <li class="header__nav-item">
           <a href="index_stu.html" class="header__nav-item--link">Trang chủ</a>
@@ -82,7 +88,11 @@
       </ul>
     </div>
     <!--  -->
-    <div id="cert_auto" class="grid wide cert__wrap">
+    <div class="grid wide cert__wrap">
+      <!-- QR code -->
+      
+      <!--  -->
+      <div id="cert_auto"></div>
       
     </div>
 
@@ -372,7 +382,7 @@
 
         //3- get data from smart contract
         const data = await window.contract.methods
-          .getStudentCertificates("66")
+          .getStudentCertificates("613")
           .call();
 
 
@@ -395,10 +405,10 @@
             var html = 
          `
           <div class="row mt30 cert_custom">
-              <div class="col l-4">
+              <div class="col l-4 m-12 c-12">
                 <img src="${imgSrc}" alt="" class="cert__img">
               </div>
-              <div class="col l-8">
+              <div class="col l-8 m-12 c-12">
                 <div class="cert__info-wrap">
                   <div class="cert__info">
                     <h1 class="cert__name">${data[i][1]}</h1>
@@ -438,7 +448,7 @@
                     <p class="cert__rank"></p>
                     <p class="cert__issuer"></p>
                   </div>
-                  <a href="#" class="cert__code"
+                  <a href="#" class="cert__code" onclick="getQR()"
                     >Nhận mã chứng chỉ</a
                   >
                 </div>
@@ -455,7 +465,7 @@
         var listCertificatesBlock = document.querySelector("#cert_auto");  
       }
     
-          //1- connect metamask
+        //1- connect metamask
           let account;
         //2- connect smart contract
       const searchCertificate = async () => {
@@ -487,10 +497,10 @@
          `
         <div class="grid wide">
             <div class="row mt30 cert_custom">
-                <div class="col l-4">
+                <div class="col l-4 m-12 c-12">
                   <img src="${imgSrc}" alt="" class="cert__img">
                 </div>
-                <div class="col l-8">
+                <div class="col l-8 m-12 c-12">
                   <div class="cert__info-wrap">
                     <div class="cert__info">
                       <h1 class="cert__name">${data[1]}</h1>
@@ -545,6 +555,32 @@
         var listCertificatesBlock = document.querySelector("#cert_auto");
     }
 
+      //QR code
+    function getQR(){
+      const list = document.querySelector(".container").classList;
+      list.add("active");
+    }
+
+      //Close QR
+    document.querySelector(".qr_close").addEventListener("click", function(){
+      document.querySelector(".active").classList.remove("active")
+    })
+
+    var container = document.querySelector(".container");
+    var generateBtn = document.querySelector(".generate-btn");
+    var qrInput = document.querySelector(".qr-input");
+    var qrImg = document.querySelector(".qr-image");
+
+    generateBtn.onclick = function () {      
+      if(qrInput.value.length > 0){ 
+        generateBtn.innerText = "Generating QR Code..."       
+        qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=170x170&data="+qrInput.value;
+        qrImg.onload = function () {
+          container.classList.add("active");
+          generateBtn.innerText = "Generate QR Code";
+        }
+      }
+    }
     </script>
   </body>
 </html>

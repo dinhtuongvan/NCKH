@@ -1,0 +1,144 @@
+/* Mobile & Tablet */
+
+@media (max-width: 1023px) {
+  .header {
+    height: 100px;
+  }
+
+  .header__logo-img {
+    display: none;
+  }
+
+  .user__icon:nth-child(1) {
+    display: none;
+  }
+
+  .user__icon {
+    margin: 0 10px;
+  }
+
+  .header__search {
+    height: 40px;
+    max-width: 600px;
+  }
+
+  .header__search-btn {
+    height: 35px;
+  }
+
+  .header__nav-list {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 70px;
+  }
+
+  .header__nav-item{
+    height: 100%;
+    width: 100%;
+    background: #0A426E;
+  }
+
+  .header__nav-item:hover{
+    background-color: #000;
+  }
+
+  .header__bar {
+    display: block;
+    max-width: 100px;
+  }
+
+  .header__nav {
+    display: block;
+    position: relative;
+  }
+
+  .partner__img {
+    margin-bottom: 30px;
+  }
+
+  .cert__info {
+    margin-bottom: 50px;
+  }
+
+  .cert__load {
+    margin-right: 0;
+    margin-bottom: 50px;
+  }
+
+  .cert__info-wrap {
+    display: block;
+  }
+
+  .cert__img {
+    margin: 10px auto 20px;
+    display: block;
+  }
+
+  .cert__name {
+    /* text-align: center; */
+  }
+
+  .user__setting {
+    margin-bottom: 30px;
+  }
+
+  .user__avt {
+    width: 200px;
+    height: 200px;
+  }
+
+  .user__avt-btn {
+    display: none;
+  }
+
+  .user__info-item {
+    margin-left: 30px;
+  }
+
+  .user__info-wrap {
+    margin-right: 30px;
+  }
+
+  .user__setting {
+    height: 500px;
+  }
+
+
+  #active_bar:checked ~ .header__nav-list{
+    display: block;
+  }
+}
+
+/* Tablet */
+
+@media (min-width: 740px) and (max-width: 1023px) {
+  .footer {
+    height: 700px !important;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 739px) {
+  .header__search {
+    max-width: 450px;
+    margin-left: 30px;
+  }
+
+  .about {
+    padding: 0 30px;
+  }
+
+  #img_preview {
+    max-width: 300px;
+  }
+
+  .footer {
+    height: 1200px !important;
+  }
+
+  .footer__item-wrap {
+    padding: 0 30px;
+  }
+}

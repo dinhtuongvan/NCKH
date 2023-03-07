@@ -1,73 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/grid.css">
-    <link rel="stylesheet" href="./assets/css/header_stu.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/grid.css" />
+    <link rel="stylesheet" href="./assets/css/header_stu.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>Header</title>
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"
     ></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="header">
-        <div class="header__logo">
-            <a href="/" class="header__logo-link">
-                <img src="./assets/image/logo_Black.png" alt="" class="header__logo-img">
-            </a>
-        </div>
+      <div class="header__logo">
+        <a href="/" class="header__logo-link">
+          <img
+            src="./assets/image/logo_Black.png"
+            alt=""
+            class="header__logo-img"
+          />
+        </a>
+      </div>
 
-        <div class="header__search">
-            <input id="certIdInput" type="text" class="header__search-input" placeholder="Nhập để tìm kiếm">
-            <button id="stu__search" class="header__search-btn">
-                <i class="fa-solid fa-magnifying-glass header__search-icon"></i>
-            </button>
-        </div>
+      <div class="header__search">
+        <input
+          id="certIdInput"
+          type="text"
+          class="header__search-input"
+          placeholder="Nhập để tìm kiếm"
+        />
+        <button id="stu__search" class="header__search-btn">
+          <i class="fa-solid fa-magnifying-glass header__search-icon"></i>
+        </button>
+      </div>
 
-        <div class="user">
-            <a href="user.html" class="user__icon">
-                <i class="fa-solid fa-user user__icon--link"></i>   
-            </a>
-            <a href="" class="user__icon">
-                <i class="fa-solid fa-bell user__icon--link"></i>
-            </a>
-            
-        </div>
+      <div class="user">
+        <a href="user.html" class="user__icon">
+          <i class="fa-solid fa-user user__icon--link"></i>
+        </a>
+        <a href="" class="user__icon">
+          <i class="fa-solid fa-bell user__icon--link"></i>
+        </a>
+      </div>
     </div>
 
     <div class="header__nav">
-        <ul class="header__nav-list">
-            <li class="header__nav-item">
-                <a href="index_stu.html" class="header__nav-item--link">Trang chủ</a>
-            </li>
+      <input hidden type="checkbox" id="active_bar" />
+      <label for="active_bar" class="header__bar">
+        <i class="fa-solid fa-bars header__bar-icon"></i>
+      </label>
+      <ul class="header__nav-list">
+        <li class="header__nav-item">
+          <a href="index_stu.html" class="header__nav-item--link">Trang chủ</a>
+        </li>
 
-            <li class="header__nav-item">
-                <a href="mycert.html" class="header__nav-item--link">Chứng chỉ của tôi</a>
-            </li>
+        <li class="header__nav-item">
+          <a href="mycert.html" class="header__nav-item--link"
+            >Chứng chỉ của tôi</a
+          >
+        </li>
 
-            <li class="header__nav-item">
-                <a href="user.html" class="header__nav-item--link">Thông tin cá nhân</a>
-            </li>
+        <li class="header__nav-item">
+          <a href="user.html" class="header__nav-item--link"
+            >Thông tin cá nhân</a
+          >
+        </li>
 
-            <li class="header__nav-item">
-                <a href="#" class="header__nav-item--link">Liên hệ</a>
-            </li>
+        <li class="header__nav-item">
+          <a href="#" class="header__nav-item--link">Liên hệ</a>
+        </li>
 
-            <li class="header__nav-item">
-                <a href="#" class="header__nav-item--link">Hỗ trợ</a>
-            </li>
-
-            
-        </ul>
+        <li class="header__nav-item">
+          <a href="#" class="header__nav-item--link">Hỗ trợ</a>
+        </li>
+      </ul>
     </div>
 
     <script src="./app.js"></script>
-</body>
+  </body>
 </html>

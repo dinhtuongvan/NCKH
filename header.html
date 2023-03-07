@@ -1,177 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/grid.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/grid.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>Header</title>
     <style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
 
-        .header{
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-        .header__logo{
+      .header {
+        height: 157px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .header__logo {
+      }
+      .header__logo-link {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      .header__logo-img {
+        width: 150px;
+        height: auto;
+      }
+      .header__search {
+        align-items: center;
+        display: flex;
+        width: 700px;
+        height: 50px;
+        border: solid 1.5px #0e99ff;
+      }
+      .header__search-input {
+        width: 90%;
+        height: 100%;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        padding: 0 16px;
+      }
+      .header__search-btn {
+        margin-right: 5px;
+        height: 40px;
+        width: 60px;
+        background-color: #0e99ff;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        border-radius: 2px;
+      }
+      .header__search-icon {
+        color: #fff;
+        font-size: 16px;
+      }
 
-        }
-        .header__logo-link{
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-        .header__logo-img{
-            width: 150px;
-            height: auto;
-        }
-        .header__search{
-            width: 700px;
-            height: 50px;
-            border: solid 1.5px #0E99FF;
-        }
-        .header__search-input{
-            width: 90%;
-            height: 100%;
-            border: none;
-            outline: none;
-            font-size: 16px;
-            padding: 0 16px;
-        }
-        .header__search-btn{
-            height: 40px;
-            width: 60px;
-            background-color: #0E99FF;
-            outline: none;
-            border: none;
-            cursor: pointer;
-            border-radius: 2px;
-        }
-        .header__search-icon{
-            color: #fff;
-            font-size: 16px;
-        }
+      .header__bar {
+        padding: 20px;
+        display: none;
+      }
 
-        .user{
+      .header__bar-icon {
+        color: #fff;
+        font-size: 30px;
+      }
 
-        }
-        .user__icon{
-            text-decoration: none;
-            padding: 10px;
-            margin: 0 5px;
-        }
-        .user__icon--link{
-            color: #0E99FF;
-            font-size: 30px;
-        }
-        .user__icon--link:hover{
-            color: #0A426E;
-        }
+      .user {
+      }
+      .user__icon {
+        text-decoration: none;
+        padding: 10px;
+        margin: 0 5px;
+      }
+      .user__icon--link {
+        color: #0e99ff;
+        font-size: 30px;
+      }
+      .user__icon--link:hover {
+        color: #0a426e;
+      }
 
-        .header__nav{
-            display: block;
-            width: 100%;
-            height: 70px;
-            background-color: #0E99FF;
-        }
+      .header__nav {
+        display: block;
+        width: 100%;
+        height: 70px;
+        background-color: #0e99ff;
+      }
 
-        .header__nav-list{
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            list-style: none;
-        }
-        .header__nav-item{
-            height: 100%;
-            width: 250px;
-        }
+      .header__nav-list {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+      }
+      .header__nav-item {
+        height: 100%;
+        width: 250px;
+      }
 
-        .header__nav-item:hover{
-            background-color: #0A426E;
-        }
+      .header__nav-item:hover {
+        background-color: #0a426e;
+      }
 
-        .header__nav-item--link{
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            color: #fff;
-            display: block;
-            width: 100%;
-            height: 100%;
-            line-height: 70px;
-            text-align: center;
-        }
+      .header__nav-item--link {
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        display: block;
+        width: 100%;
+        height: 100%;
+        line-height: 70px;
+        text-align: center;
+      }
 
-        .header__nav-item--link:active{
-            background-color: #0A426E;
-        }
+      .header__nav-item--link:active {
+        background-color: #0a426e;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="header">
-        <div class="header__logo">
-            <a href="/" class="header__logo-link">
-                <img src="./assets/image/logo_Black.png" alt="" class="header__logo-img">
-            </a>
-        </div>
+      <div class="header__logo">
+        <a href="/" class="header__logo-link">
+          <img
+            src="./assets/image/logo_Black.png"
+            alt=""
+            class="header__logo-img"
+          />
+        </a>
+      </div>
 
-        <div class="header__search">
-            <input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm">
-            <button class="header__search-btn">
-                <i class="fa-solid fa-magnifying-glass header__search-icon"></i>
-            </button>
-        </div>
+      <div class="header__search">
+        <input
+          type="text"
+          class="header__search-input"
+          placeholder="Nhập để tìm kiếm"
+        />
+        <button class="header__search-btn">
+          <i class="fa-solid fa-magnifying-glass header__search-icon"></i>
+        </button>
+      </div>
 
-        <div class="user">
-            <a href="issuer.html" class="user__icon">
-                <i class="fa-solid fa-user user__icon--link"></i>   
-            </a>
-            <a href="" class="user__icon">
-                <i class="fa-solid fa-bell user__icon--link"></i>
-            </a>
-            
-        </div>
+      <div class="user">
+        <a href="issuer.html" class="user__icon">
+          <i class="fa-solid fa-user user__icon--link"></i>
+        </a>
+        <a href="" class="user__icon">
+          <i class="fa-solid fa-bell user__icon--link"></i>
+        </a>
+      </div>
     </div>
 
     <div class="header__nav">
-        <ul class="header__nav-list">
-            <li class="header__nav-item">
-                <a href="index.html" class="header__nav-item--link">Trang chủ</a>
-            </li>
-<!-- 
+      <input hidden type="checkbox" id="active_bar" />
+      <label for="active_bar" class="header__bar">
+        <i class="fa-solid fa-bars header__bar-icon"></i>
+      </label>
+      <ul class="header__nav-list">
+        <li class="header__nav-item">
+          <a href="index.html" class="header__nav-item--link">Trang chủ</a>
+        </li>
+        <!-- 
             <li class="header__nav-item">
                 <a href="mycert.html" class="header__nav-item--link">Chứng chỉ của tôi</a>
             </li> -->
 
-            <li class="header__nav-item">
-                <a href="addstudent.html" class="header__nav-item--link">Thêm sinh viên</a>
-            </li>
+        <li class="header__nav-item">
+          <a href="addstudent.html" class="header__nav-item--link"
+            >Thêm sinh viên</a
+          >
+        </li>
 
-            <li class="header__nav-item">
-                <a href="addcert.html" class="header__nav-item--link">Phát hành chứng chỉ</a>
-            </li>
+        <li class="header__nav-item">
+          <a href="addcert.html" class="header__nav-item--link"
+            >Phát hành chứng chỉ</a
+          >
+        </li>
 
-            <li class="header__nav-item">
-                <a href="allissuer.html" class="header__nav-item--link">Chứng chỉ đã phát hành</a>
-            </li>
+        <li class="header__nav-item">
+          <a href="allissuer.html" class="header__nav-item--link"
+            >Chứng chỉ đã phát hành</a
+          >
+        </li>
 
-            <li class="header__nav-item">
-                <a href="issuer.html" class="header__nav-item--link">Thông tin tài khoản</a>
-            </li>
-
-        </ul>
+        <li class="header__nav-item">
+          <a href="issuer.html" class="header__nav-item--link"
+            >Thông tin tài khoản</a
+          >
+        </li>
+      </ul>
     </div>
-</body>
+  </body>
 </html>

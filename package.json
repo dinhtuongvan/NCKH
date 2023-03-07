@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/dinhtuongvan/NCKH#readme",
   "dependencies": {
-    "json-server": "^0.17.1"
+    "express": "^4.18.2",
+    "json-server": "^0.17.1",
+    "web3": "^1.8.2"
   }
 }

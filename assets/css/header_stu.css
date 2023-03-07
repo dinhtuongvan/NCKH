@@ -6,6 +6,7 @@
 }
 
 .header{
+    height: 157px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -23,6 +24,8 @@
     height: auto;
 }
 .header__search{
+    align-items: center;
+    display: flex;
     width: 700px;
     height: 50px;
     border: solid 1.5px #0E99FF;
@@ -34,8 +37,10 @@
     outline: none;
     font-size: 16px;
     padding: 0 16px;
+    margin: 0;
 }
 .header__search-btn{
+    margin-right: 5px;
     height: 40px;
     width: 60px;
     background-color: #0E99FF;
@@ -48,6 +53,16 @@
     color: #fff;
     font-size: 16px;
 }
+
+.header__bar{
+    padding: 20px;
+    display: none;
+  }
+
+  .header__bar-icon{
+    color: #fff;
+    font-size: 30px;
+  }
 
 .user{
 

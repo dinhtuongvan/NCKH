@@ -15,6 +15,9 @@
 
 
 /*  */
+.cert__wrap{
+    position: relative;
+}
 
 .cert_custom{
     background: #cccccc52;

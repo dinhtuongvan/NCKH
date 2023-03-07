@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="./assets/css/addcert.css" />
     <link rel="stylesheet" href="./assets/css/grid.css" />
+	<link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,12 +29,31 @@
 
     <div class="grid wide cert__wrap">
       <div class="row cert_custom mt30 mb30">
-        <div class="col l-6 cert__info">
+		<div class="col l-6 m-12 c-12">
+			<div class="cert__load">
+			  <p class="cert__xyz">Hình ảnh chứng chỉ</p>
+  
+			  <img id="img_preview" src="" height="200px"></img>
+			  <a href="#" class="btn btn_cus">
+				<input
+				  onchange="previewFile()"
+				  type="file"
+				  name="uploadfile"
+				  id="image"
+				  style="display: none"
+				  accept="image/png, image/jpg, image/jpeg"
+				/>
+				<label for="image">Upload</label>
+				<i class="fa-solid fa-upload cert__icon"></i>
+			  </a>
+			</div>
+		  </div>
+        <div class="col l-6 m-12 c-12 cert__info">
           <div class="row mb-10">
-            <div class="col l-4">
+            <div class="col l-4 m-4 c-4">
               <div class="cert__title">ID chứng chỉ</div>
             </div>
-            <div class="col l-8">
+            <div class="col l-8 m-8 c-8">
               <input id="idCertificate"
                 name="id"
                 type="text"
@@ -44,10 +64,10 @@
           </div>
 
           <div class="row mb-10">
-            <div class="col l-4">
+            <div class="col l-4 m-4 c-4">
               <div class="cert__title">Tên chứng chỉ</div>
             </div>
-            <div class="col l-8">
+            <div class="col l-8 m-8 c-8">
               <input id="nameCertificate"
                 name="name"
                 type="text"
@@ -58,10 +78,10 @@
           </div>
 
           <div class="row mb-10">
-            <div class="col l-4">
+            <div class="col l-4 m-4 c-4">
               <div class="cert__title">Tên sinh viên</div>
             </div>
-            <div class="col l-8">
+            <div class="col l-8 m-8 c-8">
               <input id="nameStudent"
                 name="receiver"
                 type="text"
@@ -71,10 +91,10 @@
             </div>
           </div>
           <div class="row mb-10">
-            <div class="col l-4">
+            <div class="col l-4 m-4 c-4">
               <div class="cert__title">Id sinh viên</div>
             </div>
-            <div class="col l-8">
+            <div class="col l-8 m-8 c-8">
               <input id="idStudent"
                 name="receiver"
                 type="text"
@@ -85,10 +105,10 @@
           </div>
 
           <div class="row mb-10">
-            <div class="col l-4">
+            <div class="col l-4 m-4 c-4">
               <div class="cert__title">Ngày phát hành</div>
             </div>
-            <div class="col l-8">
+            <div class="col l-8 m-8 c-8">
               <input id="releaseDate"
                 name="date"
                 type="date"
@@ -100,10 +120,10 @@
           </div>
 
           <div class="row mb-10">
-            <div class="col l-4">
+            <div class="col l-4 m-4 c-4">
               <div class="cert__title">Ngày hết hạn</div>
             </div>
-            <div class="col l-8">
+            <div class="col l-8 m-8 c-8">
               <input id="expirationDate"
                 name="outdate"
                 type="date"
@@ -115,10 +135,10 @@
           </div>
 
           <div class="row mb-10">
-            <div class="col l-4">
+            <div class="col l-4 m-4 c-4">
               <div class="cert__title">Xếp loại</div>
             </div>
-            <div class="col l-8">
+            <div class="col l-8 m-8 c-8">
               <input id="grade"
                 name="rank"
                 type="text"
@@ -129,10 +149,10 @@
           </div>
 
           <div class="row mb-10">
-            <div class="col l-4">
+            <div class="col l-4 m-4 c-4">
               <div class="cert__title">Đơn vị phát hành</div>
             </div>
-            <div class="col l-8">
+            <div class="col l-8 m-8 c-8">
               <input id="issuer"
                 name="issuer"
                 type="text"
@@ -141,30 +161,9 @@
               />
             </div>
           </div>
-          
-            
-
         <a id="create" href="#" class="btn">Phát hành</a>
         </div>
-        <div class="col l-6">
-          <div class="cert__load">
-            <p class="cert__xyz">Hình ảnh chứng chỉ</p>
-
-            <img id="img_preview" src="" height="200px"></img>
-            <a href="#" class="btn btn_cus">
-              <input
-                onchange="previewFile()"
-                type="file"
-                name="uploadfile"
-                id="image"
-                style="display: none"
-                accept="image/png, image/jpg, image/jpeg"
-              />
-              <label for="image">Upload</label>
-              <i class="fa-solid fa-upload cert__icon"></i>
-            </a>
-          </div>
-        </div>
+        
       </div>
 
     </div>
