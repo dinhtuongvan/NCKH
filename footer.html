@@ -1,391 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/grid.css">
-	<link rel="stylesheet" href="./assets/css/responsive.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/grid.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>Footer</title>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
 
-        .white{
-            color: #fff;
-        }
-        .footer{
-            margin-top: 17px;
-            padding: 81px 0 104px;
-            width: 100%;
-            height: 504px;
-            background-color: #0970BC;
-        }
-        
-        .footer__item-img{
-            display: block;
-            width: 100px;
-            height: auto;
-        }
-        
-        .footer__item-logo-text{
-        
-        }
-        
-        .footer__item-text{
-            color: #fff;
-            font-size: 16px;
-            line-height: 2.5;
-            font-weight: 500;
-            max-width: 250px;
-        }
-        
-        .footer__social-item{
-            display: flex;
-        }
-        
-        .footer__social-item-link{
-            text-decoration: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 29px;
-            height: 29px;
-            border: solid 1px #fff;
-            border-radius: 50%;
-            margin: 19px 13px 0 0;
-        }
-        
-        .footer__social-item-link:hover{
-            background-color: #000;
-        }
-        
-        .footer__social-icon{
-            color: #fff;
-        }
-        
-        .footer__item-title{
-            font-size: 15px;
-            color: #fff;
-            font-weight: 700;
-            margin: 34px 0 43px;
-        }
-        
-        .footer__blog-wrap{
-        
-        }
-        
-        .footer__blog-item{
-            display: flex;
-            margin-bottom: 22px;
-        }
-        
-        .footer__blog-item-img{
-            
-        }
-        
-        .footer__blog-item-content{
-            margin: 0 0 10px 0;
-        }
-        
-        .footer__blog-item-text{
-            font-size: 14px;
-            line-height: 14px;
-            color: #fff;
-            font-weight: 400;
-        }
-        
-        .footer__blog-item-text:hover,
-        .footer__item-contact-info-text:hover{
-            color: #000;
-        }
-        
-        .footer__blog-item-date{
-            font-size: 12px;
-            font-weight: 400;
-            color: #fa9e1b;
-            margin: 15px 0 0;
-        }
-        
-        
-        .footer__item-tag-component{
-            float: left;
-            margin:0 9px 9px 0;
-            height: 33px;
-            border: solid 1px #fff;
-            list-style: none;
-        }
-        
-        .footer__item-tag-component:hover{
-            background-color: #fff;
-        }
-        
-        .footer__item-tag-component:hover .footer__item-tag-component-link{
-            color: #000;
-        }
-        
-        
-        .footer__item-tag-component-link{
-            text-decoration: none;
-            color: #fff;
-            font-size: 12px;
-            line-height: 30px;
-            font-weight: 600;
-            width: 100%;
-            height: 100%;
-            padding: 0 25px;
-        }
-        
-        .footer__item-contact-info-wrap{
-        
-        }
-        
-        .footer__item-contact-info-item{
-            display: flex;
-            margin-bottom: 27px;
-        }
-        
-        .footer__item-contact-info-img{
-            width: 20px;
-            height: 20px
-        }
-        
-        .footer__item-contact-info-text{
-            font-size: 14px;
-            color: #fff;
-            margin-left: 14px;
-        }
-        
-        /* Sub-footer */
-        
-        .sub-footer{
-            background: #0A426E;
-            width: 100%;
-            height: 52px;
-        }
-        
-        .sub-footer-wrap{
-            height: 100%;
-        }
-        
-        .sub-footer-container{
-            display: flex;
-            width: 100%;
-            height: 100%;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .sub-footer__copy-right{
-            text-align: center;
-            font-size: 13px;
-            letter-spacing: 1px;
-            font-weight: 600;
-            color: #fff;
-        }
-        
-        .sub-footer__copy-right-name{
-            text-decoration: none;
-            color: #007bff;
-            font-size: 12px;
-        }
-        
-        .sub-footer__copy-right-name:hover{
-            color: #005696;
-        }
-        
-            </style>
-        </head>
-        <body>
-            <div class="footer">
-                <div class="grid wide footer-wrap">
-                    <div class="row">
-                        <div class="col l-3 m-6 c-12 footer__item">
-                            <div class="footer__item-wrap">
-                                <div class="footer__item-logo">
-                                    <img src="./assets/image/logo_DC.png" alt="" class="footer__item-img">
-                                </div>
-                                <div class="footer__item-text">
-                                    CMS Block - Hệ thống quản lý chứng chỉ phi tập trung ứng dụng Blockchain Ethereum
-                                </div>
-        
-                                <div class="footer__social">
-                                    <ul class="footer__social-list">
-                                        <li class="footer__social-item">
-                                            <a href="" class="footer__social-item-link">
-                                                <i class="fab fa-pinterest footer__social-icon" ></i>
-                                            </a>
-                                            <a href="" class="footer__social-item-link">
-                                                <i class="fab fa-facebook-f footer__social-icon"></i>
-                                            </a>
-                                            <a href="" class="footer__social-item-link">
-                                                <i class="fab fa-twitter footer__social-icon" ></i>
-                                            </a>
-                                            <a href="" class="footer__social-item-link">
-                                                <i class="fab fa-linkedin-in footer__social-icon"></i>
-                                            </a>
-                                            <a href="" class="footer__social-item-link">
-                                                <i class="fab fa-behance footer__social-icon"></i>
-                                            </a>
-                                            <a href="" class="footer__social-item-link">
-                                                <i class="fab fa-instagram footer__social-icon"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div class="col l-3 m-6 c-12 footer__item">
-                            <div class="footer__item-wrap">
-                                <div class="footer__item-title">
-                                    TAGS
-                                </div>
-        
-                                <div class="footer__item-tag-wrap">
-                                    <ul class="footer__item-tag-list">
-                                        <li class="footer__item-tag-component">
-                                            <a href="#" class="footer__item-tag-component-link">CMS Block</a>
-                                        </li>
-                                        <li class="footer__item-tag-component">
-                                            <a href="#" class="footer__item-tag-component-link">Blockchain</a>
-                                        </li>
-                                        <li class="footer__item-tag-component">
-                                            <a href="#" class="footer__item-tag-component-link">Ethereum</a>
-                                        </li>
-                                        <li class="footer__item-tag-component">
-                                            <a href="#" class="footer__item-tag-component-link">System</a>
-                                        </li>
-                                        <li class="footer__item-tag-component">
-                                            <a href="#" class="footer__item-tag-component-link">Management</a>
-                                        </li>
-                                        <li class="footer__item-tag-component">
-                                            <a href="#" class="footer__item-tag-component-link">Certificate</a>
-                                        </li>
-                                        <li class="footer__item-tag-component">
-                                            <a href="#" class="footer__item-tag-component-link">Decentralize</a>
-                                        </li>
-                                        <li class="footer__item-tag-component">
-                                            <a href="#" class="footer__item-tag-component-link">Web 3.0</a>
-                                        </li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div class="col l-3 m-6 c-12 footer__item">
-                            <div class="footer__item-wrap">
-                                <div class="footer__item-title">
-                                    HỖ TRỢ
-                                </div>
-        
-                                <!-- Footer blog item -->
-                                <div class="footer__blog-wrap">
-        
-                                    <!-- Footer blog item 1-->
-                                    <div class="footer__blog-item">
-                                        <img src="" alt="" class="footer__blog-item-img">
-                                        <div class="footer__blog-item-content">
-                                            <div class="footer__blog-item-text">
-                                                FAQ - Hỏi đáp
-                                            </div>
-                                        </div>                                    
-                                    </div>
-                                </div>
-        
-                                <!-- Footer blog item 2-->
-                                <div class="footer__blog-wrap">
-                                    <div class="footer__blog-item">
-                                        <img src="" alt="" class="footer__blog-item-img">
-                                        <div class="footer__blog-item-content">
-                                            <div class="footer__blog-item-text">
-                                                Chính sách quyền riêng tư
-                                            </div>
-                                        </div>                                    
-                                    </div>
-                                </div>
-        
-                                <!-- Footer blog item 3-->                            
-                                <div class="footer__blog-wrap">
-                                    <div class="footer__blog-item">
-                                        <img src="" alt="" class="footer__blog-item-img">
-                                        <div class="footer__blog-item-content">
-                                            <div class="footer__blog-item-text">
-                                                Mô hình quản lý
-                                            </div>
-                                        </div>                                    
-                                    </div>
-                                </div>
-        
-                                <div class="footer__blog-wrap">
-                                    <div class="footer__blog-item">
-                                        <img src="" alt="" class="footer__blog-item-img">
-                                        <div class="footer__blog-item-content">
-                                            <div class="footer__blog-item-text">
-                                                Quy định chung
-                                            </div>
-                                        </div>                                    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div class="col l-3 m-6 c-12 footer__item">
-                            <div class="footer__item-wrap">
-                                <div class="footer__item-title">
-                                    LIÊN HỆ
-                                </div>
-        
-                                <div class="footer__item-contact-info-wrap">
-                                    <div class="footer__item-contact-info-item">
-                                        <i class="fa-solid fa-location-dot white"></i>
-                                        <div class="footer__item-contact-info-text">                                        
-                                            669 QL1A, khu phố 3, Thủ Đức
-                                        </div>
-                                    </div>
-                                    <div class="footer__item-contact-info-item">
-                                        <i class="fa-solid fa-phone white"></i>
-                                        <div class="footer__item-contact-info-text">                                        
-                                            +84 1234 56 789
-                                        </div>
-                                    </div>
-                                    <div class="footer__item-contact-info-item">
-                                        <i class="fa-solid fa-envelope white"></i>
-                                        <div class="footer__item-contact-info-text">                                        
-                                            cms.block@gmail.com
-                                        </div>
-                                    </div>
-                                    <div class="footer__item-contact-info-item">
-                                        <i class="fa-solid fa-globe white"></i>
-                                        <div class="footer__item-contact-info-text">                                                                                
-                                            www.cmsblock.com
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> 
-                        </div>
+      .white {
+        color: #fff;
+      }
+      .footer {
+        margin-top: 17px;
+        padding: 81px 0 104px;
+        width: 100%;
+        height: 504px;
+        background-color: #0970bc;
+      }
+
+      .footer__item-img {
+        display: block;
+        width: 100px;
+        height: auto;
+      }
+
+     
+      .footer__item-text {
+        color: #fff;
+        font-size: 16px;
+        line-height: 2.5;
+        font-weight: 500;
+        max-width: 250px;
+      }
+
+      .footer__social-item {
+        display: flex;
+      }
+
+      .footer__social-item-link {
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 29px;
+        height: 29px;
+        border: solid 1px #fff;
+        border-radius: 50%;
+        margin: 19px 13px 0 0;
+      }
+
+      .footer__social-item-link:hover {
+        background-color: #000;
+      }
+
+      .footer__social-icon {
+        color: #fff;
+      }
+
+      .footer__item-title {
+        font-size: 15px;
+        color: #fff;
+        font-weight: 700;
+        margin: 34px 0 43px;
+      }
+
+    
+
+      .footer__blog-item {
+        display: flex;
+        margin-bottom: 22px;
+      }
+
+    
+      .footer__blog-item-content {
+        margin: 0 0 10px 0;
+      }
+
+      .footer__blog-item-text {
+        font-size: 14px;
+        line-height: 14px;
+        color: #fff;
+        font-weight: 400;
+      }
+
+      .footer__blog-item-text:hover,
+      .footer__item-contact-info-text:hover {
+        color: #000;
+      }
+
+      .footer__blog-item-date {
+        font-size: 12px;
+        font-weight: 400;
+        color: #fa9e1b;
+        margin: 15px 0 0;
+      }
+
+      .footer__item-tag-component {
+        float: left;
+        margin: 0 9px 9px 0;
+        height: 33px;
+        border: solid 1px #fff;
+        list-style: none;
+      }
+
+      .footer__item-tag-component:hover {
+        background-color: #fff;
+      }
+
+      .footer__item-tag-component:hover .footer__item-tag-component-link {
+        color: #000;
+      }
+
+      .footer__item-tag-component-link {
+        text-decoration: none;
+        color: #fff;
+        font-size: 12px;
+        line-height: 30px;
+        font-weight: 600;
+        width: 100%;
+        height: 100%;
+        padding: 0 25px;
+      }
+
+      
+
+      .footer__item-contact-info-item {
+        display: flex;
+        margin-bottom: 27px;
+      }
+
+      .footer__item-contact-info-img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .footer__item-contact-info-text {
+        font-size: 14px;
+        color: #fff;
+        margin-left: 14px;
+      }
+
+      /* Sub-footer */
+
+      .sub-footer {
+        background: #0a426e;
+        width: 100%;
+        height: 52px;
+      }
+
+      .sub-footer-wrap {
+        height: 100%;
+      }
+
+      .sub-footer-container {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .sub-footer__copy-right {
+        text-align: center;
+        font-size: 13px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        color: #fff;
+      }
+
+      .sub-footer__copy-right-name {
+        text-decoration: none;
+        color: #007bff;
+        font-size: 12px;
+      }
+
+      .sub-footer__copy-right-name:hover {
+        color: #005696;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="footer">
+      <div class="grid wide footer-wrap">
+        <div class="row">
+          <div class="col l-3 m-6 c-12 footer__item">
+            <div class="footer__item-wrap">
+              <div class="footer__item-logo">
+                <img
+                  src="./assets/image/logo_DC.png"
+                  alt=""
+                  class="footer__item-img"
+                />
+              </div>
+              <div class="footer__item-text">
+                CMS Block - Hệ thống quản lý chứng chỉ phi tập trung ứng dụng
+                Blockchain Ethereum
+              </div>
+
+              <div class="footer__social">
+                <ul class="footer__social-list">
+                  <li class="footer__social-item">
+                    <a href="" class="footer__social-item-link">
+                      <i class="fab fa-pinterest footer__social-icon"></i>
+                    </a>
+                    <a href="" class="footer__social-item-link">
+                      <i class="fab fa-facebook-f footer__social-icon"></i>
+                    </a>
+                    <a href="" class="footer__social-item-link">
+                      <i class="fab fa-twitter footer__social-icon"></i>
+                    </a>
+                    <a href="" class="footer__social-item-link">
+                      <i class="fab fa-linkedin-in footer__social-icon"></i>
+                    </a>
+                    <a href="" class="footer__social-item-link">
+                      <i class="fab fa-behance footer__social-icon"></i>
+                    </a>
+                    <a href="" class="footer__social-item-link">
+                      <i class="fab fa-instagram footer__social-icon"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col l-3 m-6 c-12 footer__item">
+            <div class="footer__item-wrap">
+              <div class="footer__item-title">TAGS</div>
+
+              <div class="footer__item-tag-wrap">
+                <ul class="footer__item-tag-list">
+                  <li class="footer__item-tag-component">
+                    <a href="#" class="footer__item-tag-component-link"
+                      >CMS Block</a
+                    >
+                  </li>
+                  <li class="footer__item-tag-component">
+                    <a href="#" class="footer__item-tag-component-link"
+                      >Blockchain</a
+                    >
+                  </li>
+                  <li class="footer__item-tag-component">
+                    <a href="#" class="footer__item-tag-component-link"
+                      >Ethereum</a
+                    >
+                  </li>
+                  <li class="footer__item-tag-component">
+                    <a href="#" class="footer__item-tag-component-link"
+                      >System</a
+                    >
+                  </li>
+                  <li class="footer__item-tag-component">
+                    <a href="#" class="footer__item-tag-component-link"
+                      >Management</a
+                    >
+                  </li>
+                  <li class="footer__item-tag-component">
+                    <a href="#" class="footer__item-tag-component-link"
+                      >Certificate</a
+                    >
+                  </li>
+                  <li class="footer__item-tag-component">
+                    <a href="#" class="footer__item-tag-component-link"
+                      >Decentralize</a
+                    >
+                  </li>
+                  <li class="footer__item-tag-component">
+                    <a href="#" class="footer__item-tag-component-link"
+                      >Web 3.0</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col l-3 m-6 c-12 footer__item">
+            <div class="footer__item-wrap">
+              <div class="footer__item-title">HỖ TRỢ</div>
+
+              <!-- Footer blog item -->
+              <div class="footer__blog-wrap">
+                <!-- Footer blog item 1-->
+                <div class="footer__blog-item">
+                  <img src="" alt="" class="footer__blog-item-img" />
+                  <div class="footer__blog-item-content">
+                    <div class="footer__blog-item-text">FAQ - Hỏi đáp</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Footer blog item 2-->
+              <div class="footer__blog-wrap">
+                <div class="footer__blog-item">
+                  <img src="" alt="" class="footer__blog-item-img" />
+                  <div class="footer__blog-item-content">
+                    <div class="footer__blog-item-text">
+                      Chính sách quyền riêng tư
                     </div>
+                  </div>
                 </div>
-            </div>
-        
-            <div class="sub-footer">
-                <div class="grid wide sub-footer-wrap">   
-                    <div class="sub-footer-container">
-                        <div class="sub-footer__copy-right">
-                            Copyright @ 2022 - Developed by CMS
-                        </div>
-        
-                    </div>        
+              </div>
+
+              <!-- Footer blog item 3-->
+              <div class="footer__blog-wrap">
+                <div class="footer__blog-item">
+                  <img src="" alt="" class="footer__blog-item-img" />
+                  <div class="footer__blog-item-content">
+                    <div class="footer__blog-item-text">Mô hình quản lý</div>
+                  </div>
                 </div>
+              </div>
+
+              <div class="footer__blog-wrap">
+                <div class="footer__blog-item">
+                  <img src="" alt="" class="footer__blog-item-img" />
+                  <div class="footer__blog-item-content">
+                    <div class="footer__blog-item-text">Quy định chung</div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </body>
+          </div>
+
+          <div class="col l-3 m-6 c-12 footer__item">
+            <div class="footer__item-wrap">
+              <div class="footer__item-title">LIÊN HỆ</div>
+
+              <div class="footer__item-contact-info-wrap">
+                <div class="footer__item-contact-info-item">
+                  <i class="fa-solid fa-location-dot white"></i>
+                  <div class="footer__item-contact-info-text">
+                    669 QL1A, khu phố 3, Thủ Đức
+                  </div>
+                </div>
+                <div class="footer__item-contact-info-item">
+                  <i class="fa-solid fa-phone white"></i>
+                  <div class="footer__item-contact-info-text">
+                    +84 1234 56 789
+                  </div>
+                </div>
+                <div class="footer__item-contact-info-item">
+                  <i class="fa-solid fa-envelope white"></i>
+                  <div class="footer__item-contact-info-text">
+                    cms.block@gmail.com
+                  </div>
+                </div>
+                <div class="footer__item-contact-info-item">
+                  <i class="fa-solid fa-globe white"></i>
+                  <div class="footer__item-contact-info-text">
+                    www.cmsblock.com
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-footer">
+      <div class="grid wide sub-footer-wrap">
+        <div class="sub-footer-container">
+          <div class="sub-footer__copy-right">
+            Copyright @ 2022 - Developed by CMS
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

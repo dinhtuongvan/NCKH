@@ -89,10 +89,7 @@
         </li>
 
         <li class="header__nav-item">
-          <a
-            onclick="showInfo()"
-            href="#"
-            class="header__nav-item--link"
+          <a onclick="showInfo()" href="#" class="header__nav-item--link"
             >Thông tin cá nhân</a
           >
         </li>
@@ -167,7 +164,11 @@
             <div class="user__info-item">
               <i class="fa-solid fa-venus user__infor-icon"></i>
               <div class="user__info-wrap">
-                <input class="user__info-tag" placeholder="Date of birth" disabled />
+                <input
+                  class="user__info-tag"
+                  placeholder="Date of birth"
+                  disabled
+                />
                 <div id="birth" class="user__infor-name"></div>
               </div>
             </div>
@@ -195,10 +196,6 @@
                 <div id="majors" class="user__infor-name"></div>
               </div>
             </div>
-
-            
-
-            
           </div>
         </div>
       </div>
@@ -222,7 +219,7 @@
 
         ABI;
         Address;
-      
+
         window.web3 = await new Web3(window.ethereum);
         window.contract = await new window.web3.eth.Contract(ABI, Address);
 
@@ -321,9 +318,8 @@
         window.location.href = "login.html";
       }
 
-
- //show thông tin người sử dụng
- const showInfo = async () => {
+      //show thông tin người sử dụng
+      const showInfo = async () => {
         if (window.ethereum !== "undefined") {
           const accounts = await ethereum.request({
             method: "eth_requestAccounts",
@@ -347,13 +343,9 @@
         document.getElementById("nameStudent").innerText = result[1];
         document.getElementById("birth").innerText = result[4]; //4
         document.getElementById("sex").innerText = result[3];
-        document.getElementById("email").innerText = result[5];//5
+        document.getElementById("email").innerText = result[5]; //5
         document.getElementById("majors").innerText = result[2]; //2
       };
-  
-
-
-
     </script>
   </body>
 </html>

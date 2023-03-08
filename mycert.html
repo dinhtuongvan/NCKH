@@ -9,10 +9,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
     <link rel="stylesheet" href="./assets/css/mycert.css" />
-    <link rel="stylesheet" href="./assets/css/header_stu.css">
+    <link rel="stylesheet" href="./assets/css/header_stu.css" />
     <link rel="stylesheet" href="./assets/css/grid.css" />
-    <link rel="stylesheet" href="./assets/css/qr.css">
-	  <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/css/qr.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -42,9 +42,18 @@
       </div>
 
       <div class="header__search">
-        <input id="certIdInput" type="text" class="header__search-input" placeholder="Nhập để tìm kiếm">
-        <button id="searchCertBtn" class="header__search-btn" onclick="searchCertificate()">
-            <i class="fa-solid fa-magnifying-glass header__search-icon"></i>
+        <input
+          id="certIdInput"
+          type="text"
+          class="header__search-input"
+          placeholder="Nhập để tìm kiếm"
+        />
+        <button
+          id="searchCertBtn"
+          class="header__search-btn"
+          onclick="searchCertificate()"
+        >
+          <i class="fa-solid fa-magnifying-glass header__search-icon"></i>
         </button>
       </div>
 
@@ -92,10 +101,9 @@
     <!--  -->
     <div class="grid wide cert__wrap">
       <!-- QR code -->
-      
+
       <!--  -->
       <div id="cert_auto"></div>
-      
     </div>
 
     <p w3-include-html="footer.html"></p>
@@ -104,8 +112,8 @@
     <script>
       w3.includeHTML();
 
-        //Load certificate
-      window.onload = async function(){
+      //Load certificate
+      window.onload = async function () {
         //1- connect metamask
         let account;
 
@@ -126,25 +134,23 @@
           .getStudentCertificates("613")
           .call();
 
-
         //get data from server
         fetch("http://localhost:3000/certificates")
           .then((response) => response.json())
           .then((dataServer) => {
             // Here, the "data" variable contains the parsed JSON data.
-            
-            dataServer.map(myFunction)
-          })
 
-        var htmls ="";
-        function myFunction(obj){
-          for(let i = 0; i< data.length; i++){
-            let imgSrc = ""
-            if(obj["id"] == data[i][0]){
+            dataServer.map(myFunction);
+          });
+
+        var htmls = "";
+        function myFunction(obj) {
+          for (let i = 0; i < data.length; i++) {
+            let imgSrc = "";
+            if (obj["id"] == data[i][0]) {
               imgSrc = obj.img;
-              
-            var html = 
-         `
+
+              var html = `
           <div class="row mt30 cert_custom">
               <div class="col l-4 m-12 c-12">
                 <img src="${imgSrc}" alt="" class="cert__img">
@@ -196,46 +202,41 @@
               </div>
             </div>
           `;
-          
-          htmls+= "" +html;
-          listCertificatesBlock.innerHTML = htmls
+
+              htmls += "" + html;
+              listCertificatesBlock.innerHTML = htmls;
             }
           }
         }
 
-        var listCertificatesBlock = document.querySelector("#cert_auto");  
-      }
-    
-        //1- connect metamask
-          let account;
-        //2- connect smart contract
+        var listCertificatesBlock = document.querySelector("#cert_auto");
+      };
+
+      //1- connect metamask
+      let account;
+      //2- connect smart contract
       const searchCertificate = async () => {
-
-        
-
         //3- get data from smart contract
         let certIdInput = document.querySelector("#certIdInput").value;
         const data = await window.contract.methods
           .getCertificateById(certIdInput)
           .call();
 
-
         //get data from server
         fetch("http://localhost:3000/certificates")
           .then((response) => response.json())
           .then((dataServer) => {
             // Here, the "data" variable contains the parsed JSON data.
-            
-            dataServer.map(myFunction)
-          })
 
-          function myFunction(obj){
-            let imgSrc = ""
-            if(obj["id"] == data[0]){
-              imgSrc = obj.img;
-              
-            var html =
-         `
+            dataServer.map(myFunction);
+          });
+
+        function myFunction(obj) {
+          let imgSrc = "";
+          if (obj["id"] == data[0]) {
+            imgSrc = obj.img;
+
+            var html = `
         <div class="grid wide">
             <div class="row mt30 cert_custom">
                 <div class="col l-4 m-12 c-12">
@@ -289,39 +290,43 @@
               </div>
 			</div>
           `;
-          listCertificatesBlock.innerHTML = html;
+            listCertificatesBlock.innerHTML = html;
           }
         }
 
         var listCertificatesBlock = document.querySelector("#cert_auto");
-    }
+      };
 
       //QR code
-    function getQR(){
-      const list = document.querySelector(".container").classList;
-      list.add("active");
-    }
+      function getQR() {
+        const list = document.querySelector(".container").classList;
+        list.add("active");
+      }
 
       //Close QR
-    document.querySelector(".qr_close").addEventListener("click", function(){
-      document.querySelector(".active").classList.remove("active")
-    })
+      document
+        .querySelector(".qr_close")
+        .addEventListener("click", function () {
+          document.querySelector(".active").classList.remove("active");
+        });
 
-    var container = document.querySelector(".container");
-    var generateBtn = document.querySelector(".generate-btn");
-    var qrInput = document.querySelector(".qr-input");
-    var qrImg = document.querySelector(".qr-image");
+      var container = document.querySelector(".container");
+      var generateBtn = document.querySelector(".generate-btn");
+      var qrInput = document.querySelector(".qr-input");
+      var qrImg = document.querySelector(".qr-image");
 
-    generateBtn.onclick = function () {      
-      if(qrInput.value.length > 0){ 
-        generateBtn.innerText = "Generating QR Code..."       
-        qrImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=170x170&data="+qrInput.value;
-        qrImg.onload = function () {
-          container.classList.add("active");
-          generateBtn.innerText = "Generate QR Code";
+      generateBtn.onclick = function () {
+        if (qrInput.value.length > 0) {
+          generateBtn.innerText = "Generating QR Code...";
+          qrImg.src =
+            "https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=" +
+            qrInput.value;
+          qrImg.onload = function () {
+            container.classList.add("active");
+            generateBtn.innerText = "Generate QR Code";
+          };
         }
-      }
-    }
+      };
     </script>
   </body>
 </html>
