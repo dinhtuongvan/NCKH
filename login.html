@@ -9,7 +9,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
     <link rel="stylesheet" href="./assets/css/login.css" />
-	<link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -43,7 +43,7 @@
               id="email1"
               type="text"
               class="input-field"
-              placeholder="User Id"
+              placeholder="Enter your Email"
               required
             />
             <input
@@ -63,12 +63,12 @@
 
           <form id="register" action="" class="input-group">
             <input
-              id="name"
-              type="text"
-              class="input-field"
-              placeholder="User Id"
-              required
-            />
+            id="name"
+            type="text"
+            class="input-field"
+            placeholder="User Id"
+            required
+          />
             <input
               id="email"
               type="email"
@@ -165,7 +165,7 @@
           })
         ) {
           alert("Đăng nhập thành công");
-          
+
           let current_user = user_records.filter((v) => {
             return v.email == email1 && v.psw == psw1;
           })[0];

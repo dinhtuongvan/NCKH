@@ -21,12 +21,19 @@
     />
     <title>User</title>
     <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script src="./abi.js"></script>
+    <script src="./address.js"></script>
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"
     ></script>
   </head>
   <body>
+    <script>
+      window.onload = function () {
+        showInfo();
+      };
+    </script>
     <!-- Header Student -->
     <div class="header">
       <div class="header__logo">
@@ -83,8 +90,8 @@
 
         <li class="header__nav-item">
           <a
-            onclick="showInfor()"
-            href="user.html"
+            onclick="showInfo()"
+            href="#"
             class="header__nav-item--link"
             >Thông tin cá nhân</a
           >
@@ -121,8 +128,8 @@
                 </label>
               </a>
             </div>
-            <p class="user__name">Đinh Tường Văn</p>
-            <p class="user__id">K204110613</p>
+            <p id="name" class="user__name"></p>
+            <p id="id" class="user__id"></p>
             <a href="" class="btn-s">Chỉnh sửa</a>
             <a onclick="Logout()" href="" class="btn btn_cus">
               Đăng xuất
@@ -138,10 +145,10 @@
               <div class="user__info-wrap">
                 <input
                   class="user__info-tag"
-                  placeholder="Full name"
+                  placeholder="id student"
                   disabled
                 />
-                <div class="user__infor-name">Đinh Tường Văn</div>
+                <div id="idStudent" class="user__infor-name"></div>
               </div>
             </div>
 
@@ -150,26 +157,26 @@
               <div class="user__info-wrap">
                 <input
                   class="user__info-tag"
-                  placeholder="Date of birth"
+                  placeholder="Full name"
                   disabled
                 />
-                <div class="user__infor-name">22/05/2002</div>
+                <div id="nameStudent" class="user__infor-name"></div>
               </div>
             </div>
 
             <div class="user__info-item">
               <i class="fa-solid fa-venus user__infor-icon"></i>
               <div class="user__info-wrap">
-                <input class="user__info-tag" placeholder="Gender" disabled />
-                <div class="user__infor-name">Nam</div>
+                <input class="user__info-tag" placeholder="Date of birth" disabled />
+                <div id="birth" class="user__infor-name"></div>
               </div>
             </div>
 
             <div class="user__info-item">
               <i class="fa-solid fa-phone user__infor-icon"></i>
               <div class="user__info-wrap">
-                <input class="user__info-tag" placeholder="Phone" disabled />
-                <div class="user__infor-name">0123 456 78</div>
+                <input class="user__info-tag" placeholder="Gender" disabled />
+                <div id="sex" class="user__infor-name"></div>
               </div>
             </div>
 
@@ -177,7 +184,7 @@
               <i class="fa-solid fa-envelope user__infor-icon"></i>
               <div class="user__info-wrap">
                 <input class="user__info-tag" placeholder="Email" disabled />
-                <div class="user__infor-name">dinhtuongvan225@gmail.com</div>
+                <div id="email" class="user__infor-name"></div>
               </div>
             </div>
 
@@ -185,25 +192,13 @@
               <i class="fa-solid fa-book user__infor-icon"></i>
               <div class="user__info-wrap">
                 <input class="user__info-tag" placeholder="Major" disabled />
-                <div class="user__infor-name">Thương Mại Điện Tử</div>
+                <div id="majors" class="user__infor-name"></div>
               </div>
             </div>
 
-            <div class="user__info-item">
-              <i class="fa-solid fa-lock user__infor-icon"></i>
-              <div class="user__info-wrap">
-                <input class="user__info-tag" placeholder="Account" disabled />
-                <div class="user__infor-name">dinhtuongvan225</div>
-              </div>
-            </div>
+            
 
-            <div class="user__info-item">
-              <i class="fa-sharp fa-solid fa-key user__infor-icon"></i>
-              <div class="user__info-wrap">
-                <input class="user__info-tag" placeholder="Password" disabled />
-                <div class="user__infor-name">123456789</div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -225,268 +220,9 @@
           account = accounts[0];
         }
 
-        const ABI = [
-          {
-            inputs: [
-              {
-                internalType: "uint256",
-                name: "_idCertificate",
-                type: "uint256",
-              },
-              {
-                internalType: "string",
-                name: "_nameCertificate",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_nameStudent",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_releaseDate",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_expirationDate",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_issuer",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_idStudent",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_grade",
-                type: "string",
-              },
-            ],
-            name: "addCertificate",
-            outputs: [],
-            stateMutability: "nonpayable",
-            type: "function",
-          },
-          {
-            inputs: [
-              {
-                internalType: "string",
-                name: "_idStudent",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_name",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_majors",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_sex",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_birth",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "_email",
-                type: "string",
-              },
-            ],
-            name: "addStudent",
-            outputs: [],
-            stateMutability: "nonpayable",
-            type: "function",
-          },
-          {
-            inputs: [],
-            stateMutability: "nonpayable",
-            type: "constructor",
-          },
-          {
-            anonymous: false,
-            inputs: [
-              {
-                indexed: false,
-                internalType: "uint256",
-                name: "certificateId",
-                type: "uint256",
-              },
-              {
-                indexed: false,
-                internalType: "string",
-                name: "nameCertificate",
-                type: "string",
-              },
-              {
-                indexed: false,
-                internalType: "string",
-                name: "nameStudent",
-                type: "string",
-              },
-            ],
-            name: "savedCertificate",
-            type: "event",
-          },
-          {
-            anonymous: false,
-            inputs: [
-              {
-                indexed: false,
-                internalType: "string",
-                name: "idStudent",
-                type: "string",
-              },
-              {
-                indexed: false,
-                internalType: "string",
-                name: "name",
-                type: "string",
-              },
-            ],
-            name: "savedStudent",
-            type: "event",
-          },
-          {
-            inputs: [
-              {
-                internalType: "uint256",
-                name: "_idCertificate",
-                type: "uint256",
-              },
-            ],
-            name: "getCertificateById",
-            outputs: [
-              {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-              },
-              {
-                internalType: "string",
-                name: "",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "",
-                type: "string",
-              },
-              {
-                internalType: "string",
-                name: "",
-                type: "string",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-          {
-            inputs: [
-              {
-                internalType: "string",
-                name: "_idStudent",
-                type: "string",
-              },
-            ],
-            name: "getCertificatesByStudentId",
-            outputs: [
-              {
-                internalType: "uint256[]",
-                name: "",
-                type: "uint256[]",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-          {
-            inputs: [
-              {
-                internalType: "string",
-                name: "_idStudent",
-                type: "string",
-              },
-            ],
-            name: "getStudentCertificates",
-            outputs: [
-              {
-                components: [
-                  {
-                    internalType: "uint256",
-                    name: "idCertificate",
-                    type: "uint256",
-                  },
-                  {
-                    internalType: "string",
-                    name: "nameCertificate",
-                    type: "string",
-                  },
-                  {
-                    internalType: "string",
-                    name: "nameStudent",
-                    type: "string",
-                  },
-                  {
-                    internalType: "string",
-                    name: "releaseDate",
-                    type: "string",
-                  },
-                  {
-                    internalType: "string",
-                    name: "expirationDate",
-                    type: "string",
-                  },
-                  {
-                    internalType: "string",
-                    name: "issuer",
-                    type: "string",
-                  },
-                  {
-                    internalType: "string",
-                    name: "grade",
-                    type: "string",
-                  },
-                ],
-                internalType: "struct CertificateManagement.Certificate[]",
-                name: "",
-                type: "tuple[]",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-        ];
-        const Address = "0xA0Fb9CbA3C58Fd4eA7050388657Bc91041518340";
+        ABI;
+        Address;
+      
         window.web3 = await new Web3(window.ethereum);
         window.contract = await new window.web3.eth.Contract(ABI, Address);
 
@@ -584,6 +320,40 @@
         localStorage.removeItem("email");
         window.location.href = "login.html";
       }
+
+
+ //show thông tin người sử dụng
+ const showInfo = async () => {
+        if (window.ethereum !== "undefined") {
+          const accounts = await ethereum.request({
+            method: "eth_requestAccounts",
+          });
+          account = accounts[0];
+        }
+
+        ABI;
+        Address;
+        window.web3 = await new Web3(window.ethereum);
+        window.contract = await new window.web3.eth.Contract(ABI, Address);
+
+        //3- send certificate data
+        let email = localStorage.getItem("email");
+        const result = await window.contract.methods
+          .getStudentByEmail(email)
+          .call();
+        document.getElementById("id").innerText = result[0];
+        document.getElementById("name").innerText = result[1];
+        document.getElementById("idStudent").innerText = result[0];
+        document.getElementById("nameStudent").innerText = result[1];
+        document.getElementById("birth").innerText = result[4]; //4
+        document.getElementById("sex").innerText = result[3];
+        document.getElementById("email").innerText = result[5];//5
+        document.getElementById("majors").innerText = result[2]; //2
+      };
+  
+
+
+
     </script>
   </body>
 </html>
